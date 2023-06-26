@@ -7,6 +7,18 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
+		table{
+			margin : auto;
+		    // 가로 넓이도 지정해주면 좋습니다.
+		    width : 80%;
+		}
+		.head{
+			margin : auto;
+		    width :64%;
+		}
+		th, td {
+		  text-align: center;
+		}
 		.div_page ul{
 			display: flex;
 			list-style: none;
@@ -14,8 +26,8 @@
 		}
 	</style>
 </head>
-<body>
-	<table border="1">
+<body >
+	<table border="1" class="head">
 		<tr>
 			<td colspan="4">
 				<a href="list">모집/신청</a>

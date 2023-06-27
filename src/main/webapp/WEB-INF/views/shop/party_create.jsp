@@ -12,7 +12,10 @@
 		    width : 80%;
 		}
 		th, td {
-			width: auto;
+			text-align: center;
+		}
+		select{
+			width: 25%; 
 			text-align: center;
 		}
 </style>
@@ -33,11 +36,18 @@
 		</tr>
 		<tr>
 			<td>파티 인원</td>
-			<td><input type="number" name="p_max" min="0" max="3"></td>
+<!-- 			<td><input type="number" name="p_max" min="0" max="3"></td> -->
+		<td>
+			<select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+		</td>
 		</tr>
 		<tr>
 			<td>파티 제목</td>
-			<td><input type="text" name="p_title"></td>
+			<td class="con"><input type="text" name="p_title"></td>
 		</tr>
 		<tr>
 			<td>파티 끝나는 기간</td>
@@ -45,7 +55,7 @@
 		</tr>
 		<tr>
 			<td>파티 가격</td>
-			<td><input type="number" name="p_price"></td>
+			<td><input type="text" name="p_price"></td>
 		</tr>
 		<tr>
 			<td>플랫폼 아이디</td>

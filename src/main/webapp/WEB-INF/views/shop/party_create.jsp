@@ -47,7 +47,7 @@
 		</tr>
 		<tr>
 			<td>파티 제목</td>
-			<td class="con"><input type="text" name="p_title"></td>
+			<td><input type="text" name="p_title" ></td>
 		</tr>
 		<tr>
 			<td>파티 끝나는 기간</td>

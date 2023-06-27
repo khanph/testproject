@@ -5,6 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+		table{
+			margin : auto;
+		    // 가로 넓이도 지정해주면 좋습니다.
+		    width : 80%;
+		}
+		th, td {
+			width: auto;
+			text-align: center;
+		}
+</style>
 </head>
 <body>
 <table width="500" border="1">

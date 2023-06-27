@@ -1,12 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+		table{
+			margin : auto;
+		    // ê°€ë¡œ ë„“ì´ë„ ì§€ì •í•´ì£¼ë©´ ì¢‹ìŠµë‹ˆë‹¤.
+		    width : 80%;
+		}
+		.head{
+			margin : auto;
+		    width :64%;
+		}
+		th, td {
+		  text-align: center;
+		}
 		.div_page ul{
 			display: flex;
 			list-style: none;
@@ -14,55 +26,55 @@
 		}
 	</style>
 </head>
-<body>
-	<table border="1">
+<body >
+	<table border="1" class="head">
 		<tr>
 			<td colspan="4">
-				<a href="list">¸ğÁı/½ÅÃ»</a>
+				<a href="list">ëª¨ì§‘/ì‹ ì²­</a>
 			</td>
 			<td>
-				<a href="party_create">ÆÄÆ¼¸ğÁı</a>
+				<a href="party_create">íŒŒí‹°ëª¨ì§‘</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<a href="listNetflix">
-					³İÇÃ¸¯½º
+					ë„·í”Œë¦­ìŠ¤
 				</a>
 			</td>
 			<td>
 				<a href="listWavve">
-					¿şÀÌºê
+					ì›¨ì´ë¸Œ
 				</a>
 			</td>
 			<td>
 				<a href="listTving">
-					Æ¼ºù
+					í‹°ë¹™
 				</a>
 			</td>
 			<td>
 				<a href="listDisney">
-					µğÁî´ÏÇÃ·¯½º
+					ë””ì¦ˆë‹ˆí”ŒëŸ¬ìŠ¤
 				</a>
 			</td>
 			<td>
 				<a href="listWatcha">
-					¿ÓÃ­
+					ì™“ì± 
 				</a>
 			</td>
 		</tr>
 	</table>
 	<table border="1">
 		<tr>
-		 	<td>ÆÄÆ¼ ¹øÈ£ </td>
-		 	<td>ÆÄÆ¼Àå </td>
-		 	<td>ÆÄÆ¼ ÀÎ¿ø  </td>
-		 	<td>ÆÄÆ¼ ³¡³ª´Â ±â°£ </td>
-		 	<td>ÆÄÆ¼ ±İ¾× </td>
-		 	<td>°øÀ¯ ÇÃ·§Æû </td>
-		 	<td>¼ºÀÎÀÎÁõ À¯¹« </td>
-		 	<td>ÀÚÀ¯ ÀÔ·Â </td>
-		 	<td>ÆÄÆ¼ ¸¸µç ½Ã°£ </td>
+		 	<td>íŒŒí‹° ë²ˆí˜¸ </td>
+		 	<td>íŒŒí‹°ì¥ </td>
+		 	<td>íŒŒí‹° ì¸ì›  </td>
+		 	<td>íŒŒí‹° ëë‚˜ëŠ” ê¸°ê°„ </td>
+		 	<td>íŒŒí‹° ê¸ˆì•¡ </td>
+		 	<td>ê³µìœ  í”Œë«í¼ </td>
+		 	<td>ì„±ì¸ì¸ì¦ ìœ ë¬´ </td>
+		 	<td>ììœ  ì…ë ¥ </td>
+		 	<td>íŒŒí‹° ë§Œë“  ì‹œê°„ </td>
 		</tr>
 		<c:forEach var="getParty_list" items="${getParty_list }">
 		<tr>
@@ -85,7 +97,7 @@
 		<ul>
 			<c:if test="${pageMaker.prev}">
 				<li class="paginate_button">
-<!-- 					½ÃÀÛÆäÀÌÁö - 1 ÇÏ¸é ÀÌÀüÀÇ 10°³ ÆäÀÌÁö Ç¥½Ã -->
+<!-- 					ì‹œì‘í˜ì´ì§€ - 1 í•˜ë©´ ì´ì „ì˜ 10ê°œ í˜ì´ì§€ í‘œì‹œ -->
 <!-- 				ex>11->10(1~10), 21->20(11~20) -->
 					<a href="${pageMaker.startPage - 1}">
 						[Previous]
@@ -95,9 +107,9 @@
 			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 <%-- 				<li>${num}</li> --%>
 <%-- 				<li ${pageMaker.cri.pageNum == num ? "style='color:red'":""} > --%>
-<!-- 				ÇöÀç ÆäÀÌÁö´Â ¹è°æ»ö ³ë¶õ»öÀ¸·Î Ç¥½Ã -->
+<!-- 				í˜„ì¬ í˜ì´ì§€ëŠ” ë°°ê²½ìƒ‰ ë…¸ë€ìƒ‰ìœ¼ë¡œ í‘œì‹œ -->
 				<li class="paginate_button" ${pageMaker.cri.pageNum == num ? "style='background-color:yellow'":""} >
-<!-- 					Å¬¸¯ÇÑ ÇöÀçÆäÀÌÁö ¹øÈ£¸¦ ¸µÅ©·Î ¿¬°á -->
+<!-- 					í´ë¦­í•œ í˜„ì¬í˜ì´ì§€ ë²ˆí˜¸ë¥¼ ë§í¬ë¡œ ì—°ê²° -->
 					<a href="${num}">
 						[${num}]
 					</a>
@@ -105,7 +117,7 @@
 			</c:forEach>
 			<c:if test="${pageMaker.next}">
 				<li class="paginate_button">
-<!-- 					³¡ÆäÀÌÁö + 1 ÇÏ¸é ÀÌÈÄÀÇ 10°³ ÆäÀÌÁö Ç¥½Ã -->
+<!-- 					ëí˜ì´ì§€ + 1 í•˜ë©´ ì´í›„ì˜ 10ê°œ í˜ì´ì§€ í‘œì‹œ -->
 <!-- 				ex>10->11(11~20), 20->21(21~30) -->
 					<a href="${pageMaker.endPage + 1}">
 						[Next]
@@ -126,7 +138,7 @@
 	var actionForm =$("#actionForm");
 	
 	
-// 	ÆäÀÌÁö¹øÈ£ Ã³¸®
+// 	í˜ì´ì§€ë²ˆí˜¸ ì²˜ë¦¬
 	$(".paginate_button a").on("click", function(e){
 		e.preventDefault();
 		console.log("@# href==>"+$(this).attr("href"));
@@ -136,7 +148,7 @@
 	
 	
 	
-// 	°Ô½Ã±Û Ã³¸®
+// 	ê²Œì‹œê¸€ ì²˜ë¦¬
 	$(".move_link").on("click",function(e){
 		e.preventDefault();
 		var targetBno=$(this).attr("href");

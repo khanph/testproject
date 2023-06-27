@@ -27,23 +27,16 @@
 		<tr>
 			<td>파티 플랫폼</td>
 			<td>
-				<label><input type="radio" name="p_platform" value="넷플릭스">넷플릭스</label>			
-				<label><input type="radio" name="p_platform" value="웨이브">웨이브</label>			
-				<label><input type="radio" name="p_platform" value="티빙">티빙</label>			
-				<label><input type="radio" name="p_platform" value="왓챠">왓챠</label>			
-				<label><input type="radio" name="p_platform" value="디즈니플러스">디즈니플러스</label>			
+				<label><input type="radio" name="p_platform" value="netfliex">넷플릭스</label>			
+				<label><input type="radio" name="p_platform" value="wavve">웨이브</label>			
+				<label><input type="radio" name="p_platform" value="tving">티빙</label>			
+				<label><input type="radio" name="p_platform" value="watcha">왓챠</label>			
+				<label><input type="radio" name="p_platform" value="disney">디즈니플러스</label>			
 			</td>
 		</tr>
 		<tr>
 			<td>파티 인원</td>
-<!-- 			<td><input type="number" name="p_max" min="0" max="3"></td> -->
-		<td>
-			<select>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-		</td>
+			<td><input type="number" name="p_max" min="0" max="3"></td>
 		</tr>
 		<tr>
 			<td>파티 제목</td>
@@ -67,7 +60,11 @@
 		</tr>
 		<tr>
 			<td>플랫폼 성인인증</td>
-			<td><input type="text" name="p_adult"></td>
+			<td>
+				<label><input type="radio" name="p_adult" value="N" checked="checked">N</label>	
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="p_adult" value="Y">Y</label>
+			</td>		
 		</tr>
 		<tr>
 			<td>플랫폼 성인인증 번호</td>
@@ -126,7 +123,7 @@
             return false;
         }
         // 	    파티 인원
-	    if(p_max[0].value.length==0){
+	    if(p_max[0].value.lenght==0){
             alert("파티 인원을 선택하세요")
             return false;
         }

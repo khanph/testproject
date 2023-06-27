@@ -11,7 +11,7 @@
 		    // 가로 넓이도 지정해주면 좋습니다.
 		    width : 80%;
 		}
-		th, td {
+		td {
 			text-align: center;
 		}
 		select{
@@ -70,7 +70,7 @@
 			<td><input type="text" name="p_adult"></td>
 		</tr>
 		<tr>
-			<td>플랫폼 성인인증 전화번호</td>
+			<td>플랫폼 성인인증 번호</td>
 			<td><input type="text" name="p_adult_password"></td>
 		</tr>
 		<tr>

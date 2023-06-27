@@ -85,7 +85,7 @@
 	
 <!-- 	리스트 출력 -->
 	<select id="getParty_list" parameterType="hashmap" resultType="com.lgy.shallweshare.party.dto.PartyDto">
-		select * from party
+		select * from party order by p_id
 	</select>
 	
 	<select id="getParty_listNetfliex" parameterType="hashmap" resultType="com.lgy.shallweshare.party.dto.PartyDto">
@@ -118,11 +118,11 @@
 <!-- 	페이징 -->
 	<select id="listWithPaging" resultType="com.lgy.shallweshare.party.dto.PartyDto">
         <![CDATA[
-	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
+	        SELECT *
 			FROM (SELECT rownum rn, p_id, u_id,p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party 
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
         
@@ -130,12 +130,12 @@
 	</select>
 	<select id="netflixPaging" resultType="com.lgy.shallweshare.party.dto.PartyDto">
         <![CDATA[
-	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
+	        SELECT *
 			FROM (SELECT rownum rn, p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
 	        	 and p_platform = 'netflix'
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>
@@ -143,12 +143,12 @@
 	
 	<select id="wavvePaging" resultType="com.lgy.shallweshare.party.dto.PartyDto">
         <![CDATA[
-	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
+	        SELECT *
 			FROM (SELECT rownum rn, p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
 	        	 and p_platform = 'wavve'
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>
@@ -158,10 +158,10 @@
         <![CDATA[
 	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
 			FROM (SELECT rownum rn, p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
 	        	 and p_platform = 'tving'
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>
@@ -171,10 +171,10 @@
         <![CDATA[
 	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
 			FROM (SELECT rownum rn, p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
 	        	 and p_platform = 'disney'
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>
@@ -184,10 +184,10 @@
         <![CDATA[
 	        SELECT p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
 			FROM (SELECT rownum rn, p_id, u_id, p_title, p_max, p_finish_date, p_price, p_platform, p_adult, p_content, p_created
-	       		 FROM party
+	       		 FROM (select * from party order by p_id desc)
 	        	 WHERE rownum <= (#{pageNum} * #{amount})
 	        	 and p_platform = 'watcha'
-	        	 ORDER BY p_id
+	        	 ORDER BY p_id desc
 	       		 )       
 			WHERE rn > (#{pageNum} -1) * #{amount}
 		]]>

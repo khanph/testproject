@@ -14,7 +14,7 @@
 		}
 		.head{
 			margin : auto;
-		    width :64%;
+		    width :40%;
 		}
 		th, td {
 		  text-align: center;
@@ -23,6 +23,10 @@
 			display: flex;
 			list-style: none;
 			justify-content: center;
+		}
+		img{
+			width: 120;
+			height: 50;
 		}
 	</style>
 </head>
@@ -39,27 +43,27 @@
 		<tr>
 			<td>
 				<a href="listNetflix">
-					넷플릭스
+					<img src="../resources/img/NETFLIX.png">
 				</a>
 			</td>
 			<td>
 				<a href="listWavve">
-					웨이브
+					<img src="../resources/img/wavve.png">
 				</a>
 			</td>
 			<td>
 				<a href="listTving">
-					티빙
+					<img src="../resources/img/TVING.jpg">
 				</a>
 			</td>
 			<td>
 				<a href="listDisney">
-					디즈니플러스
+					<img src="../resources/img/DISNEY.jpg">
 				</a>
 			</td>
 			<td>
 				<a href="listWatcha">
-					왓챠
+					<img src="../resources/img/WATCHA.jpg">
 				</a>
 			</td>
 		</tr>

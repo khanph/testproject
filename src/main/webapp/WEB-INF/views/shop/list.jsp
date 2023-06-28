@@ -79,7 +79,7 @@
 		 	<td>파티 금액 </td>
 		 	<td>공유 플랫폼 </td>
 		 	<td>성인인증 유무 </td>
-		 	<td>자유 입력 </td>
+		 	<td>제목</td>
 		 	<td>파티 만든 시간 </td>
 		</tr>
 		<c:forEach var="getParty_list" items="${getParty_list }">

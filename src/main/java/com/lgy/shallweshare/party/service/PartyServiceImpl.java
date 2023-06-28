@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lgy.shallweshare.mypage.dto.ApplicationPartyDto;
 import com.lgy.shallweshare.party.dao.PartyDao;
 import com.lgy.shallweshare.party.dto.ApplicationDto;
 import com.lgy.shallweshare.party.dto.Criteria;
@@ -127,6 +126,25 @@ public class PartyServiceImpl implements PartyService{
 		return dto;
 	}
 
+	@Override
+	public void party_delete(HashMap<String, String> param) {
+		log.info("@# partyService.party_delete() start");
+		
+		PartyDao dao = sqlSession.getMapper(PartyDao.class);
+		dao.party_delete(param);
+		
+		log.info("@# partyService.party_delete() end");
+	}
+	
+	@Override
+	public void party_modify(HashMap<String, String> param) {
+		log.info("@# partyService.party_modify() start");
+		
+		PartyDao dao = sqlSession.getMapper(PartyDao.class);
+		dao.party_modify(param);
+		
+		log.info("@# partyService.party_modify() end");
+	}
 	
 	
 	@Override

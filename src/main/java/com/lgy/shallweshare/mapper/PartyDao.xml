@@ -230,4 +230,29 @@
     <select id="content_view" parameterType="hashmap" resultType="com.lgy.shallweshare.party.dto.PartyDto">
         select * from party where p_id=#{p_id}
     </select>
+    
+     <delete id="party_delete" parameterType="hashmap">
+		delete from party where u_id=#{u_id}
+    </delete>
+    
+    <insert id="party_modify" parameterType="hashmap">
+		insert into
+		PARTY
+		values(
+		NVL((SELECT MAX(p_id) from party),0)+1,
+		#{u_id, jdbcType=VARCHAR},
+		#{p_platform, jdbcType=VARCHAR},
+		#{p_title, jdbcType=VARCHAR},
+		#{p_max, jdbcType=VARCHAR},
+		#{p_finish_date, jdbcType=VARCHAR},
+		#{p_price, jdbcType=VARCHAR},
+		#{p_content, jdbcType=VARCHAR},
+		#{p_adult, jdbcType=VARCHAR},
+		#{p_platform_id, jdbcType=VARCHAR},
+		#{p_platform_password, jdbcType=VARCHAR},
+		#{p_adult_password, jdbcType=VARCHAR},
+		SYSDATE,
+		#{p_adult, jdbcType=VARCHAR})
+	</insert>
+    
 </mapper>

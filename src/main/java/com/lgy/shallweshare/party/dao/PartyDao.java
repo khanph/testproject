@@ -41,4 +41,6 @@ public interface PartyDao {
 	
 	
 	public PartyDto content_view(HashMap<String, String> param);
+	public void party_delete(HashMap<String, String> param);
+	public void party_modify(HashMap<String, String> param);
 }

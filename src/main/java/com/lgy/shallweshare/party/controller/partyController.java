@@ -10,8 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lgy.shallweshare.party.dto.ApplicationDto;
 import com.lgy.shallweshare.party.dto.Criteria;
@@ -140,6 +142,33 @@ public class partyController {
 		
 		log.info("@# Controller: application_complete_kakao");
 		return "shop/application_complete_kakao";
+	}
+	
+	
+//	파티 삭제
+	@RequestMapping("/party_delete")
+	public String party_delete(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+		log.info("@# delete");
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("Amount", cri.getAmount());
+		
+		pService.party_delete(param);
+		
+		return "redirect:list";
+	}
+	
+//	파티 수정
+	@RequestMapping("/party_modify")
+	public String party_modify(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+		log.info("@# modify");
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("Amount", cri.getAmount());
+		
+		pService.party_modify(param);
+		
+		return "redirect:list";
 	}
 	
 	

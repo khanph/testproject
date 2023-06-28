@@ -89,6 +89,7 @@
 
 <script type="text/javascript">
 // 	취소
+	console.log("0")
 	function goList() {
 		window.location.href = "list";
 	}

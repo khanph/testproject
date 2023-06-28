@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 		table{
 			margin : auto;
@@ -31,6 +32,7 @@
 	</style>
 </head>
 <body >
+	
 	<table border="1" class="head">
 		<tr>
 			<td colspan="4">

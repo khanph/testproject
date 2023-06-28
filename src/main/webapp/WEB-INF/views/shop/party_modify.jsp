@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
 	<table width="500" border="1">
@@ -36,24 +35,26 @@
 		</c:forEach>
 		<tr>
 			<td>파티 플랫폼</td>
-			<td> ${party.p_platform}</td>
+			<td> <input type="text" value="${party.p_platform}"> </td>
 		</tr>
 		<tr>
 			<td>파티 기간</td>
 			<td>
-<%-- 				<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy-MM-dd" />까지 ${finish_date-toDay} --%>
-				<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy.MM.dd. HH:mm" />까지
+<%-- 				<fmt:formatDate value="${party.p_finish_date}"pattern="yyyy-MM-dd" />까지 ${finish_date-toDay} --%>
+				<input type="date" value="<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy.MM.dd. HH:mm" />까지">
 			</td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>${party.p_title}</td>
+			<td>
+				<input type="text" value=" ${party.p_title}">
+			</td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
-				<textarea rows="20" cols="60" readonly="readonly">${party.p_content}</textarea>
-			</td> 
+				<textarea rows="20" cols="60" >${party.p_content}</textarea> 
+			</td>
 		</tr>
 		<c:choose>
 		<c:when test="${ fn:length(participant_list)+1 < party.p_max}">

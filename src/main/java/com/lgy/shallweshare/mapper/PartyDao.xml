@@ -227,8 +227,6 @@
 			]]>
    	</select>
     
-    
-    
     <select id="content_view" parameterType="hashmap" resultType="com.lgy.shallweshare.party.dto.PartyDto">
         select * from party where p_id=#{p_id}
     </select>

@@ -55,11 +55,18 @@
 			<input type="button" value="신청하기"
 				onclick="javascript:window.location='application?p_id=${party.p_id}'">
 		</c:when>
+		
 		<c:otherwise>
 			<h2>파티 모집이 완료되었습니다.</h2>
 		</c:otherwise>
-	</c:choose>
-	<input type="submit" value="목록" formaction="list">
+		</c:choose>
+		
+		<input type="submit" value="목록" formaction="list">
+		 
+        <!-- 파티 개설자와 현재 로그인한 사용자의 u_id 비교 -->
+		 <c:if test="${party.u_id eq loggedUser.u_id}">
+        	<input type="submit" value="삭제" formaction="delete">
+    	</c:if>
 		</form>
 	</table>
 </body>

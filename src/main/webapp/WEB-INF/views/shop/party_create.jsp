@@ -168,12 +168,7 @@
 // 				alert("파티 성인인증을 하세요");
 // 				return false;
 // 			}
-		
-// 	    플랫폼 성인인증 전화번호
-// 	    if(p_adult_password[0].value.length==0){
-//             alert("파티 성인인증 전화번호를 적어주세요")
-//             return false;
-//         }
+
     //  유효성 문제 없을 시 폼에 submit
 		document.querySelector("form").submit();
 	}

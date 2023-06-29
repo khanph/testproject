@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,6 @@ public class partyController {
 	@Autowired 
 	private Party_BoardService p_boardService;
 	
-
 	
 //	=============== 파티 가입 후 페이지 ===============
 	@RequestMapping("shop/party_page_joined")
@@ -75,14 +75,18 @@ public class partyController {
 	@RequestMapping("shop/party_create")
 	public String partyCreate(@RequestParam HashMap<String, String> param, Model model) {
 		log.info("@# Controller: party_create");
-
+		
 		return "shop/party_create";
 	}
 	
 //	=============== 파티 생성 메소드 ===============
 	@RequestMapping("shop/party_createProcess")
-	public String partyCreateProcess(@RequestParam HashMap<String, String> param, Model model) {
+	public String partyCreateProcess(@RequestParam HashMap<String, String> param, Model model, HttpSession session) {
 		log.info("@# Controller: party_createProcess");
+		usersDto dto =(usersDto) session.getAttribute("user");
+		param.put("u_id", String.valueOf(dto.getU_id()));
+		log.info("@# Controller: param=="+param);
+		
 		pService.createParty(param);
 		return "redirect:list";
 	}
@@ -147,11 +151,16 @@ public class partyController {
 	
 //	파티 삭제
 	@RequestMapping("/party_delete")
-	public String party_delete(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String party_delete(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
+			RedirectAttributes rttr,HttpSession session) {
 		log.info("@# delete");
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
+		usersDto dto =(usersDto) session.getAttribute("user");
+		int u_id=dto.getU_id();
+		
+		
 		
 		pService.party_delete(param);
 		
@@ -160,11 +169,15 @@ public class partyController {
 	
 //	파티 수정
 	@RequestMapping("/party_modify")
-	public String party_modify(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String party_modify(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
+			RedirectAttributes rttr,HttpSession session) {
 		log.info("@# modify");
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
+		usersDto dto =(usersDto) session.getAttribute("user");
+		param.put("u_id", String.valueOf(dto.getU_id()));
+		log.info("@# delete: param=="+param);
 		
 		pService.party_modify(param);
 		
@@ -174,7 +187,7 @@ public class partyController {
 	
 //	리스트페이징
 	@RequestMapping("shop/list")
-	public String party_list(HttpServletResponse response,Criteria cri, Model model) {
+	public String party_list(@RequestParam HashMap<String, String> param,HttpServletResponse response,Criteria cri, Model model) {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
 		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 		response.setHeader("Expires", "0"); // Proxies
@@ -182,9 +195,11 @@ public class partyController {
 		log.info("@@@@@@####### list");
 		log.info("@# cri ====>"+cri);
 		
+		
 		model.addAttribute("getParty_list", pService.getParty_list(cri));
 		int total = pService.getTotalCount();
 		log.info("@# total ====>"+total);
+		
 		
 		model.addAttribute("pageMaker", new PageDTO(total, cri));
 		
@@ -301,5 +316,38 @@ public class partyController {
 		log.info("@# content_view=");
 		
 		return "shop/party_page";
+	}
+		
+//		임시 로그인
+		@RequestMapping("shop/login")
+		public String login() {
+			log.info("@#@#@#@#@# login");
+			return "shop/login";
+		}
+		
+		@RequestMapping("shop/loginCheck")
+		public String loginCheck(@RequestParam HashMap<String, String> param, Model model,HttpSession session) {
+			log.info("@# login");
+			int u_id=Integer.parseInt(param.get("u_id"));
+			String u_pw=param.get("u_pw");
+			log.info("@# u_id===>"+u_id);
+			log.info("@# u_pw===>"+u_pw);
+			
+			usersDto dto=userService.getUserInfo(u_id);
+			log.info("@# getU_id===>"+dto.getU_id());
+			log.info("@# getU_pw===>"+dto.getU_pw());
+			
+			if (dto != null) {
+				if (dto.getU_pw().equals(u_pw)) {
+					session.setAttribute("user", dto);
+//					("user", dto);
+					log.info("@# login 성공");
+					return "redirect:list";
+				}else {
+					return "shop/login";
+				}
+			}
+			return "shop/login";
+		
 	}
 }

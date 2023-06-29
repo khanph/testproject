@@ -8,6 +8,7 @@ import com.lgy.shallweshare.party.dto.ApplicationDto;
 import com.lgy.shallweshare.party.dto.Criteria;
 import com.lgy.shallweshare.party.dto.PartyDto;
 import com.lgy.shallweshare.party.dto.Party_boardDto;
+import com.lgy.shallweshare.users.dto.usersDto;
 
 public interface PartyDao {
 	public PartyDto getPartyInfo(HashMap<String, String> param);

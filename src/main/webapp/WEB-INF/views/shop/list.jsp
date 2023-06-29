@@ -35,11 +35,14 @@
 	
 	<table border="1" class="head">
 		<tr>
-			<td colspan="4">
+			<td colspan="3">
 				<a href="list">모집/신청</a>
 			</td>
 			<td>
 				<a href="party_create">파티모집</a>
+			</td>
+			<td>
+				<a href="login">로그인</a>
 			</td>
 		</tr>
 		<tr>
@@ -136,6 +139,10 @@
 	<form method="get" action="#" id="actionForm">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
+	</form>
+	<form method="posdt" action="#" id="actionForm">
+		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
+		${user.getU_id()}
 	</form>
 </body>
 </html>

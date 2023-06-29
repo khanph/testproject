@@ -33,4 +33,17 @@ public class usersServiceImpl implements usersService{
 		usersDao dao  = sqlSession.getMapper(usersDao.class);
 		dao.editProfile(param);
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

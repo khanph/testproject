@@ -6,22 +6,8 @@
 <mapper namespace="com.lgy.shallweshare.party.dao.PartyDao">
 	<select id="getPartyInfo" parameterType="hashmap"
 		resultType="com.lgy.shallweshare.party.dto.PartyDto">
-		select p_id,
-		u_id,
-		p_platform,
-		p_title,
-		p_max,
-		p_finish_date,
-		p_price,
-		p_content,
-		p_adult,
-		p_platform_id,
-		p_platform_password,
-		p_adult_password,
-		p_created,
-		p_deleted
-		from party
-		where p_id = #{p_id,jdbcType = VARCHAR}
+		select *from party
+		where p_id = #{p_id}
 	</select>
 
 	<insert id="application_process" parameterType="hashmap">

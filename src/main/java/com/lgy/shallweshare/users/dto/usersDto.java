@@ -24,4 +24,5 @@ public class usersDto {
 	 private String u_authentication;
 	 private float u_temperature;
 	 private Timestamp u_created;
+	 private String u_pw;
 }

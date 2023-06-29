@@ -67,48 +67,11 @@
 		</c:choose>
 		
 		<input type="submit" value="목록" formaction="list">
-		<input type="button" value="삭제" onclick="deleteCheck()">
-		<input type="button" value="수정" onclick="modifyCheck()">
+		<input type="button" value="삭제" formaction="party_delete?u_id=${party.u_id}">
+		<input type="button" value="수정" formaction="party_modify">
 		 
-        <!-- 파티 개설자와 현재 로그인한 사용자의 u_id 비교 -->
-<%-- 		 <c:if test="${party.u_id eq loggedUser.u_id}"> --%>
-<!--         	<input type="submit" value="삭제" formaction="delete"> -->
-<%--     	</c:if> --%>
+
 		</form>
 	</table>
 </body>
 </html>
-
-<script type="text/javascript">
-	function deleteCheck() {
-	    var userid = "${loggedUser.u_id}"; // 현재 사용자의 u_id
-	    var u_Id = "${party.u_id}"; // 게시글의 작성자의 u_id
-	
-	    if (userId == u_Id) {
-	        var confirmation = confirm("정말로 삭제하시겠습니까?");
-	
-	        if (confirmation) {
-	            // 삭제 처리를 위한 페이지로 이동
-	            window.location.href = "party_delete?u_id=${party.u_id}";
-	        }
-	    } else {
-	        alert("권한이 없습니다.");
-    	}
-	}
-	
-	function modifyCheck() {
-	    var userid = "${loggedUser.u_id}"; // 현재 사용자의 u_id
-	    var u_Id = "${party.u_id}"; // 게시글의 작성자의 u_id
-	
-	    if (userId == u_Id) {
-	        var confirmation = confirm("정말로 수정하시겠습니까?");
-	
-	        if (confirmation) {
-	            // 삭제 처리를 위한 페이지로 이동
-	            window.location.href = "party_modify?u_id=${party.u_id}";
-	        }
-	    } else {
-	        alert("권한이 없습니다.");
-    	}
-	}
-</script>

@@ -20,7 +20,8 @@
 			u_bank_account,
 			u_authentication,
 			u_temperature,
-			u_created
+			u_created,
+			u_pw
 		from users
 		where u_id = #{u_id,jdbcType = VARCHAR}
 	</select>
@@ -33,4 +34,5 @@
 			u_bank_account = #{u_bank_account}
 		where u_id= #{u_id, jdbcType = VARCHAR}
 	</update>
+	
 </mapper>

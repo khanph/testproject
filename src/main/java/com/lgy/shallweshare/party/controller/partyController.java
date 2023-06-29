@@ -150,7 +150,7 @@ public class partyController {
 	
 	
 //	파티 삭제
-	@RequestMapping("/party_delete")
+	@RequestMapping("shop/party_delete")
 	public String party_delete(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr,HttpSession session) {
 		log.info("@# delete");
@@ -158,13 +158,22 @@ public class partyController {
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
 		usersDto dto =(usersDto) session.getAttribute("user");
-		int u_id=dto.getU_id();
+		log.info("@# dto==="+dto);
 		
 		
+		int now_id=dto.getU_id();
+		log.info("@# now_id=="+now_id);
 		
-		pService.party_delete(param);
+		int u_id=Integer.parseInt(param.get("u_id"));
+		log.info("@# u_id=="+u_id);
 		
-		return "redirect:list";
+		if (now_id==u_id) {
+			pService.party_delete(param);
+			log.info("@# delete 성공");
+			return "redirect:list";
+		}else {
+			return "shop/party_page";
+		}
 	}
 	
 //	파티 수정
@@ -313,7 +322,7 @@ public class partyController {
 		log.info("@# Controller: party_page ==>" + party);
 		
 		model.addAttribute("pageMaker", param);
-		log.info("@# content_view=");
+		log.info("@# Controller end");
 		
 		return "shop/party_page";
 	}

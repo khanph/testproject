@@ -13,7 +13,6 @@
 		<form method="post" action="*">
 		<input type="hidden" name="pageNum" value="${pageMaker.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.amount }"> 
-		<input type="hidden" name="bid" value="${pageMaker.bid }"> 
 			<tr>
 			<td>파티 번호</td>
 			<td>${party.p_id}</td>

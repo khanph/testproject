@@ -7,7 +7,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
 
+function deleteCheck() {
+	
+	var sessionU_id = '<%= session.getAttribute("u_id") %>';
+	var u_id = '${party.u_id}';
+	console.log("sessionU_id="+sessionU_id+","+"u_id="+u_id)
+	
+	if (sessionU_id === u_id) {
+	    window.location='party_delete?p_id=${party.p_id}';
+	} else {
+	    // 세션의 u_id 값과 JSP 안의 u_id 값이 일치하지 않는 경우
+	    alert("파티장 아님")
+	}
+}
+function modifyCheck() {
+	
+	var sessionU_id = '<%= session.getAttribute("u_id") %>';
+	var u_id = '${party.u_id}';
+	
+	if (sessionU_id === u_id) {
+	    window.location='party_modify';
+	} else {
+	    // 세션의 u_id 값과 JSP 안의 u_id 값이 일치하지 않는 경우
+	    alert("파티장 아님")
+	}
+}
+</script>
 </head>
 <body>
 	<table width="500" border="1">
@@ -65,13 +92,17 @@
 		</c:otherwise>
 		</c:choose>
 		
-		<input type="button" value="목록" onclick="javascript:window.location='list'">
-		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}&pageNum=${pageMaker.pageNum }&amount=${pageMaker.amount }&p_id=${party.p_id}'">
+		<input type="submit" value="목록" onclick="javascript:window.location='list'">
+<%-- 		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}&pageNum=${pageMaker.pageNum }&amount=${pageMaker.amount }&p_id=${party.p_id}'"> --%>
+		<input type="button" value="삭제" onclick="deleteCheck()">
 	
-		<input type="submit" value="수정" formaction="party_modify">
+	
+		<input type="button" value="수정" onclick="modifyCheck()">
+		
 	
 		</form>
 	</table>
 </body>
 </html>
+
 

@@ -157,27 +157,14 @@ public class partyController {
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
-		rttr.addAttribute("p_id", param.get("p_id"));
+		rttr.addAttribute("u_id", param.get("u_id"));
+		log.info("@# u_id==="+param.get("u_id"));
+		
 		log.info("@# dto==="+cri.getPageNum());
-		usersDto dto =(usersDto) session.getAttribute("user");
+		log.info("@#@#  param==>"+param);
+		pService.party_delete(param);
 		
-		
-		int now_id=dto.getU_id();
-		log.info("@# now_id=="+now_id);
-		
-		int u_id=Integer.parseInt(param.get("u_id"));
-		log.info("@# u_id=="+u_id);
-		
-		if (now_id==u_id) {
-			pService.party_delete(param);
-			log.info("@# delete 성공");
-			return "redirect:list";
-		}else {
-			log.info("@# delete 실패");
-			log.info("@# delete param====>"+param);
-			
-			return "redirect:party_page";
-		}
+		return "redirect:list";
 	}
 	
 //	파티 수정
@@ -322,15 +309,18 @@ public class partyController {
 	
 	
 	@RequestMapping("/shop/party_page")
-	public String content_view(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model) {
+	public String party_page(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model,HttpSession session,RedirectAttributes rttr) {
 		// 임시 로그인 세션
-		HttpSession session = request.getSession();
-		session.setAttribute("u_id", 10);
+//		HttpSession session = request.getSession();
+//		session.setAttribute("u_id", 10);
+		
+		rttr.addAttribute("u_id",session.getAttribute("u_id"));
+		log.info("@# u_id==="+session.getAttribute("u_id"));
 		
 		log.info("@# Controller: party_page");
 		// 파티 정보 가져오기
 		PartyDto party = pService.getPartyInfo(param);
-		log.info("content_view@#   param==>"+param);
+		log.info("party_page@#   param==>"+param);
 		model.addAttribute("party", party);
 
 		// 파티장 정보 가져오기
@@ -375,7 +365,7 @@ public class partyController {
 			
 			if (dto != null) {
 				if (dto.getU_pw().equals(u_pw)) {
-					session.setAttribute("user", dto);
+					session.setAttribute("u_id", dto.getU_id());
 //					("user", dto);
 					log.info("@# login 성공");
 					return "redirect:list";

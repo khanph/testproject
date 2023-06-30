@@ -218,7 +218,7 @@
     </select>
     
      <delete id="party_delete" parameterType="hashmap">
-		delete from party where u_id=#{u_id}
+		delete from party where p_id=#{p_id}
     </delete>
     
     <insert id="party_modify" parameterType="hashmap">

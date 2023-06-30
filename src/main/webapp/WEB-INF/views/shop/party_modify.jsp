@@ -56,20 +56,20 @@
 				<textarea rows="20" cols="60" >${party.p_content}</textarea> 
 			</td>
 		</tr>
-		<c:choose>
-		<c:when test="${ fn:length(participant_list)+1 < party.p_max}">
-			<input type="button" value="신청하기"
-				onclick="javascript:window.location='application?p_id=${party.p_id}'">
-		</c:when>
+<%-- 		<c:choose> --%>
+<%-- 		<c:when test="${ fn:length(participant_list)+1 < party.p_max}"> --%>
+<!-- 			<input type="button" value="신청하기" -->
+<%-- 				onclick="javascript:window.location='application?p_id=${party.p_id}'"> --%>
+<%-- 		</c:when> --%>
 		
-		<c:otherwise>
-			<h2>파티 모집이 완료되었습니다.</h2>
-		</c:otherwise>
-		</c:choose>
+<%-- 		<c:otherwise> --%>
+<!-- 			<h2>파티 모집이 완료되었습니다.</h2> -->
+<%-- 		</c:otherwise> --%>
+<%-- 		</c:choose> --%>
 		
 		<input type="submit" value="목록" formaction="list">
-		<input type="button" value="삭제" onclick="deleteCheck()">
-		<input type="button" value="수정" onclick="modifyCheck()">
+		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}'">
+		<input type="button" value="수정" onclick="javascript:window.location='party_modify?u_id=${party.u_id}'">
 		 
         <!-- 파티 개설자와 현재 로그인한 사용자의 u_id 비교 -->
 <%-- 		 <c:if test="${party.u_id eq loggedUser.u_id}"> --%>

@@ -157,8 +157,9 @@ public class partyController {
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
+		rttr.addAttribute("p_id", param.get("p_id"));
+		log.info("@# dto==="+cri.getPageNum());
 		usersDto dto =(usersDto) session.getAttribute("user");
-		log.info("@# dto==="+dto);
 		
 		
 		int now_id=dto.getU_id();
@@ -172,25 +173,50 @@ public class partyController {
 			log.info("@# delete 성공");
 			return "redirect:list";
 		}else {
-			return "shop/party_page";
+			log.info("@# delete 실패");
+			log.info("@# delete param====>"+param);
+			
+			return "redirect:party_page";
 		}
 	}
 	
 //	파티 수정
-	@RequestMapping("/party_modify")
+	
+	@RequestMapping("shop/party_modify")
 	public String party_modify(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
+			RedirectAttributes rttr,HttpSession session) {
+		log.info("party_modify   param==="+param);
+		log.info("@#@#@#@#@# party_modify");
+		return "shop/party_modify";
+	}
+	@RequestMapping("shop/party_modifyCheck")
+	public String party_modifyCheck(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr,HttpSession session) {
 		log.info("@# modify");
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
+		rttr.addAttribute("p_id", param.get("p_id"));
 		usersDto dto =(usersDto) session.getAttribute("user");
-		param.put("u_id", String.valueOf(dto.getU_id()));
-		log.info("@# delete: param=="+param);
+		log.info("@# dto==="+dto);
 		
-		pService.party_modify(param);
 		
-		return "redirect:list";
+		int now_id=dto.getU_id();
+		log.info("@# now_id=="+now_id);
+		
+		int u_id=Integer.parseInt(param.get("u_id"));
+		log.info("@# u_id=="+u_id);
+		
+		if (now_id==u_id) {
+			log.info("@# modify 성공");
+			pService.party_modify(param);
+			return "redirect:list";
+		}else {
+			log.info("@# modify 실패");
+			rttr.addFlashAttribute("failed", true);
+			log.info("@# modify param==>"+param);
+			return "redirect:party_page";
+		}
 	}
 	
 	
@@ -304,6 +330,7 @@ public class partyController {
 		log.info("@# Controller: party_page");
 		// 파티 정보 가져오기
 		PartyDto party = pService.getPartyInfo(param);
+		log.info("content_view@#   param==>"+param);
 		model.addAttribute("party", party);
 
 		// 파티장 정보 가져오기

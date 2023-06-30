@@ -14,7 +14,6 @@
 		<form method="post" action="*">
 		<input type="hidden" name="pageNum" value="${pageMaker.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.amount }"> 
-		<input type="hidden" name="bid" value="${pageMaker.bid }"> 
 			<tr>
 			<td>파티 번호</td>
 			<td>${party.p_id}</td>
@@ -66,34 +65,13 @@
 		</c:otherwise>
 		</c:choose>
 		
-		<input type="submit" value="목록" formaction="list">
-		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}'">
-		<input type="button" value="수정" onclick="modify()">
-		 
-        <!-- 파티 개설자와 현재 로그인한 사용자의 u_id 비교 -->
-<%-- 		 <c:if test="${party.u_id eq loggedUser.u_id}"> --%>
-<!--         	<input type="submit" value="삭제" formaction="delete"> -->
-<%--     	</c:if> --%>
+		<input type="button" value="목록" onclick="javascript:window.location='list'">
+		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}&pageNum=${pageMaker.pageNum }&amount=${pageMaker.amount }&p_id=${party.p_id}'">
+	
+		<input type="submit" value="수정" formaction="party_modify">
+	
 		</form>
 	</table>
 </body>
 </html>
 
-<script type="text/javascript">
-	
-	function modifyCheck() {
-	    var userid = "${loggedUser.u_id}"; // 현재 사용자의 u_id
-	    var u_Id = "${party.u_id}"; // 게시글의 작성자의 u_id
-	
-	    if (userId == u_Id) {
-	        var confirmation = confirm("정말로 수정하시겠습니까?");
-	
-	        if (confirmation) {
-	            // 삭제 처리를 위한 페이지로 이동
-	            window.location.href = "party_modify?u_id=${party.u_id}";
-	        }
-	    } else {
-	        alert("권한이 없습니다.");
-    	}
-	}
-</script>

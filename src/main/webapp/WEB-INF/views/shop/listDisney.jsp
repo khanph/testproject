@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 		table{
 			margin : auto;
@@ -31,13 +32,17 @@
 	</style>
 </head>
 <body >
+	
 	<table border="1" class="head">
 		<tr>
-			<td colspan="4">
+			<td colspan="3">
 				<a href="list">모집/신청</a>
 			</td>
 			<td>
-				<a href="party_create">파티모집</a>
+				<a href="party_create">파티만들기</a>
+			</td>
+			<td>
+				<a href="login" class="login">로그인</a>
 			</td>
 		</tr>
 		<tr>
@@ -77,7 +82,7 @@
 		 	<td>파티 금액 </td>
 		 	<td>공유 플랫폼 </td>
 		 	<td>성인인증 유무 </td>
-		 	<td>자유 입력 </td>
+		 	<td>제목</td>
 		 	<td>파티 만든 시간 </td>
 		</tr>
 		<c:forEach var="getParty_list" items="${getParty_list }">
@@ -135,12 +140,17 @@
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
 	</form>
+	<form method="posdt" action="#" id="actionForm">
+		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
+		${user.getU_id()}
+	</form>
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
+
 	var actionForm =$("#actionForm");
-	
 	
 // 	페이지번호 처리
 	$(".paginate_button a").on("click", function(e){

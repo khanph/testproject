@@ -39,10 +39,10 @@
 				<a href="list">모집/신청</a>
 			</td>
 			<td>
-				<a href="party_create">파티모집</a>
+				<a href="party_create">파티만들기</a>
 			</td>
 			<td>
-				<a href="login">로그인</a>
+				<a href="login" class="login">로그인</a>
 			</td>
 		</tr>
 		<tr>
@@ -148,9 +148,9 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-	
+
+
 	var actionForm =$("#actionForm");
-	
 	
 // 	페이지번호 처리
 	$(".paginate_button a").on("click", function(e){

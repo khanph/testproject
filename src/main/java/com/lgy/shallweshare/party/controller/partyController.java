@@ -344,7 +344,7 @@ public class partyController {
 		return "shop/party_page";
 	}
 		
-//		임시 로그인
+//		임시 로그인(추후 수정 변경 될수 있음)
 		@RequestMapping("shop/login")
 		public String login() {
 			log.info("@#@#@#@#@# login");
@@ -354,11 +354,14 @@ public class partyController {
 		@RequestMapping("shop/loginCheck")
 		public String loginCheck(@RequestParam HashMap<String, String> param, Model model,HttpSession session) {
 			log.info("@# login");
+			
+			//로그인 창에서 입력한정보
 			int u_id=Integer.parseInt(param.get("u_id"));
 			String u_pw=param.get("u_pw");
 			log.info("@# u_id===>"+u_id);
 			log.info("@# u_pw===>"+u_pw);
 			
+			//오라클 정보
 			usersDto dto=userService.getUserInfo(u_id);
 			log.info("@# getU_id===>"+dto.getU_id());
 			log.info("@# getU_pw===>"+dto.getU_pw());

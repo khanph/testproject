@@ -16,7 +16,7 @@ function deleteCheck() {
 	console.log("sessionU_id="+sessionU_id+","+"u_id="+u_id)
 	
 	if (sessionU_id === u_id) {
-	    window.location='party_delete?u_id=${party.u_id}';
+	    window.location='party_delete?p_id=${party.p_id}';
 	} else {
 	    // 세션의 u_id 값과 JSP 안의 u_id 값이 일치하지 않는 경우
 	    alert("파티장 아님")

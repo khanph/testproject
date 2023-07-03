@@ -161,10 +161,6 @@ public class partyController {
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
-		rttr.addAttribute("u_id", param);
-//		int u_id=Integer.parseInt( param.get("u_id"));
-//		log.info("@# delete  u_id=="+u_id);
-//		
 		
 		pService.party_delete(param);
 		

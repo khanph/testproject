@@ -88,7 +88,7 @@ public class partyController {
 		log.info("@# Controller: dto=="+dto);
 		
 		param.put("u_id", String.valueOf(dto.getU_id()));
-		log.info("@# Controller: param=="+param);
+		log.info("@# party_createProcess: param=="+param);
 		
 		pService.createParty(param);
 		return "redirect:list";
@@ -187,34 +187,15 @@ public class partyController {
 	}
 	@RequestMapping("shop/party_modifyCheck")
 	public String party_modifyCheck(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
-			RedirectAttributes rttr,HttpSession session) {
+			RedirectAttributes rttr,HttpSession session,Model model) {
 		log.info("@# modify");
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("Amount", cri.getAmount());
-		rttr.addAttribute("p_id", param.get("p_id"));
-		PartyDto partyDto=(PartyDto) session.getAttribute("party");
-		log.info("@# partyDto==="+partyDto);
-		usersDto userdto =(usersDto) session.getAttribute("user");
-		log.info("@# userdto==="+userdto);
+		log.info("@# modify cri=="+cri);
+		log.info("@# modify param=="+param);
+		pService.party_modify(param);
+		model.addAttribute("cri", cri);
 		
-		
-		int now_id=userdto.getU_id();
-		log.info("@# now_id=="+now_id);
-		
-		int u_id=Integer.parseInt(param.get("u_id"));
-		log.info("@# u_id=="+u_id);
-		
-		if (now_id==u_id) {
-			log.info("@# modify 성공");
-			pService.party_modify(param);
-			return "redirect:list";
-		}else {
-			log.info("@# modify 실패");
-			rttr.addFlashAttribute("failed", true);
-			log.info("@# modify param==>"+param);
-			return "redirect:party_page";
-		}
+		return "redirect:party_page";
 	}
 	
 	

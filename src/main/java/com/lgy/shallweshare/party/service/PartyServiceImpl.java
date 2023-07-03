@@ -141,6 +141,7 @@ public class PartyServiceImpl implements PartyService{
 		log.info("@# partyService.party_modify() start");
 		
 		PartyDao dao = sqlSession.getMapper(PartyDao.class);
+		log.info("@# partyService.party_modify() dao=="+dao);
 		dao.party_modify(param);
 		
 		log.info("@# partyService.party_modify() end");

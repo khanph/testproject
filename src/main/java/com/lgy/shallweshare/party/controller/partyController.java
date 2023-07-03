@@ -157,26 +157,36 @@ public class partyController {
 	public String party_delete(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr,HttpSession session) {
 		log.info("@# delete");
+		log.info("@# delete  param=="+param);
 		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
-		rttr.addAttribute("u_id", param.get("u_id"));
-		log.info("@# u_id==="+param.get("u_id"));
+		rttr.addAttribute("u_id", param);
+//		int u_id=Integer.parseInt( param.get("u_id"));
+//		log.info("@# delete  u_id=="+u_id);
+//		
 		
-		log.info("@# dto==="+cri.getPageNum());
-		log.info("@#@#  param==>"+param);
 		pService.party_delete(param);
 		
 		return "redirect:list";
 	}
 	
 //	파티 수정
-	
 	@RequestMapping("shop/party_modify")
 	public String party_modify(@RequestParam HashMap<String, String> param, @ModelAttribute("cri") Criteria cri,
-			RedirectAttributes rttr,HttpSession session) {
-		log.info("party_modify   param==="+param);
+			RedirectAttributes rttr,HttpSession session,Model model) {
 		log.info("@#@#@#@#@# party_modify");
+		log.info("party_modify   param==="+param);
+		PartyDto dto=pService.getPartyInfo(param);
+		log.info("party_modify   dto==="+dto);
+		usersDto master = userService.getUserInfo(dto.getU_id());
+		model.addAttribute("master", master);
+		
+		model.addAttribute("party", dto);
+		
+		log.info("party_modify   cri==="+cri.getAmount());
+		log.info("party_modify   cri==="+cri.getPageNum());
+		model.addAttribute("cri", cri);
 		return "shop/party_modify";
 	}
 	@RequestMapping("shop/party_modifyCheck")
@@ -187,11 +197,13 @@ public class partyController {
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("Amount", cri.getAmount());
 		rttr.addAttribute("p_id", param.get("p_id"));
-		usersDto dto =(usersDto) session.getAttribute("user");
-		log.info("@# dto==="+dto);
+		PartyDto partyDto=(PartyDto) session.getAttribute("party");
+		log.info("@# partyDto==="+partyDto);
+		usersDto userdto =(usersDto) session.getAttribute("user");
+		log.info("@# userdto==="+userdto);
 		
 		
-		int now_id=dto.getU_id();
+		int now_id=userdto.getU_id();
 		log.info("@# now_id=="+now_id);
 		
 		int u_id=Integer.parseInt(param.get("u_id"));
@@ -319,7 +331,7 @@ public class partyController {
 	
 	
 	@RequestMapping("/shop/party_page")
-	public String party_page(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model,HttpSession session,RedirectAttributes rttr) {
+	public String party_page(HttpServletRequest request, Criteria cri,@RequestParam HashMap<String, String> param, Model model,HttpSession session,RedirectAttributes rttr) {
 		// 임시 로그인 세션
 //		HttpSession session = request.getSession();
 //		session.setAttribute("u_id", 10);
@@ -329,8 +341,8 @@ public class partyController {
 		
 		log.info("@# Controller: party_page");
 		// 파티 정보 가져오기
-		PartyDto party = pService.getPartyInfo(param);
 		log.info("party_page@#   param==>"+param);
+		PartyDto party = pService.getPartyInfo(param);
 		model.addAttribute("party", party);
 
 		// 파티장 정보 가져오기
@@ -347,8 +359,11 @@ public class partyController {
 		model.addAttribute("participant_list", participant_list);
 
 		log.info("@# Controller: party_page ==>" + party);
+		session.setAttribute("party", party);
+		session.setAttribute("cri",	cri);
 		
 		model.addAttribute("pageMaker", param);
+		
 		log.info("@# Controller end");
 		
 		return "shop/party_page";

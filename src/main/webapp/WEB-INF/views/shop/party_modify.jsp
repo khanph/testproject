@@ -10,10 +10,11 @@
 </head>
 <body>
 	<table width="500" border="1">
-		<form method="post" action="*">
-		<input type="hidden" name="pageNum" value="${pageMaker.pageNum }"> 
-		<input type="hidden" name="amount" value="${pageMaker.amount }"> 
-			<tr>
+		<form method="post" action="*" >
+		<input type="hidden" name="pageNum" value="${cri.pageNum }"> 
+		<input type="hidden" name="amount" value="${cri.amount }"> 
+
+		<tr>
 			<td>파티 번호</td>
 			<td>${party.p_id}</td>
 		</tr>
@@ -34,52 +35,51 @@
 		</c:forEach>
 		<tr>
 			<td>파티 플랫폼</td>
-			<td> <input type="text" value="${party.p_platform}"> </td>
+			<td> <input type="text" value="${party.p_platform}"></td>
 		</tr>
 		<tr>
 			<td>파티 기간</td>
 			<td>
-<%-- 				<fmt:formatDate value="${party.p_finish_date}"pattern="yyyy-MM-dd" />까지 ${finish_date-toDay} --%>
-				<input type="date" value="<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy.MM.dd. HH:mm" />까지">
+<%-- 				<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy-MM-dd" />까지 ${finish_date-toDay} --%>
+<%-- 				<fmt:formatDate value="${party.p_finish_date}" pattern="yyyy.MM.dd. HH:mm" />까지 --%>
+				<input type="date" name="p_finish_date" >
 			</td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>
-				<input type="text" value=" ${party.p_title}">
-			</td>
+			<td><input type="text" value="${party.p_title}"></td>
 		</tr>
 		<tr>
 			<td>내용</td>
 			<td>
-				<textarea rows="20" cols="60" >${party.p_content}</textarea> 
-			</td>
+				<textarea rows="20" cols="60" >${party.p_content}</textarea>
+			</td> 
 		</tr>
-<%-- 		<c:choose> --%>
-<%-- 		<c:when test="${ fn:length(participant_list)+1 < party.p_max}"> --%>
-<!-- 			<input type="button" value="신청하기" -->
-<%-- 				onclick="javascript:window.location='application?p_id=${party.p_id}'"> --%>
-<%-- 		</c:when> --%>
-		
-<%-- 		<c:otherwise> --%>
-<!-- 			<h2>파티 모집이 완료되었습니다.</h2> -->
-<%-- 		</c:otherwise> --%>
-<%-- 		</c:choose> --%>
 		
 		<input type="submit" value="목록" formaction="list">
-		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}'">
-		<input type="button" value="수정" onclick="javascript:window.location='party_modify?u_id=${party.u_id}'">
-		 
-        <!-- 파티 개설자와 현재 로그인한 사용자의 u_id 비교 -->
-<%-- 		 <c:if test="${party.u_id eq loggedUser.u_id}"> --%>
-<!--         	<input type="submit" value="삭제" formaction="delete"> -->
-<%--     	</c:if> --%>
+		<input type="button" value="삭제" onclick="deleteCheck()">
+		<input type="button" value="수정" onclick="modifyCheck()">
+	
 		</form>
 	</table>
 </body>
 </html>
 
 <script type="text/javascript">
+	
+	//파티 끝나는 기간(오늘 이후)
+	var now_utc = Date.now() // 지금 날짜(밀리초)
+	 // getTimezoneOffset()은 현재 시간과의 차이를 분 단위로 반환
+	var timeOff = new Date().getTimezoneOffset()*60000; // 분단위를 밀리초로 변환
+	 // new Date(now_utc-timeOff).toISOString()은 '2022-05-11T18:09:38.134Z'를 반환
+	var today = new Date(now_utc-timeOff).toISOString().split("T")[0];
+	//  document.getElementsByName("p_finish_date").setAttribute("min", today);
+	var finishDateInputs = document.getElementsByName("p_finish_date");
+	
+	for (var i = 0; i < finishDateInputs.length; i++) {
+	    finishDateInputs[i].setAttribute("min", today);
+	}
+	
 	function deleteCheck() {
 	    var userid = "${loggedUser.u_id}"; // 현재 사용자의 u_id
 	    var u_Id = "${party.u_id}"; // 게시글의 작성자의 u_id

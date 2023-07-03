@@ -16,7 +16,7 @@ function deleteCheck() {
 	console.log("sessionU_id="+sessionU_id+","+"u_id="+u_id)
 	
 	if (sessionU_id === u_id) {
-	    window.location='party_delete?p_id=${party.p_id}';
+	    window.location='party_delete?u_id=${party.u_id}';
 	} else {
 	    // 세션의 u_id 값과 JSP 안의 u_id 값이 일치하지 않는 경우
 	    alert("파티장 아님")
@@ -28,7 +28,7 @@ function modifyCheck() {
 	var u_id = '${party.u_id}';
 	
 	if (sessionU_id === u_id) {
-	    window.location='party_modify';
+	    window.location='party_modify?p_id=${party.p_id}';
 	} else {
 	    // 세션의 u_id 값과 JSP 안의 u_id 값이 일치하지 않는 경우
 	    alert("파티장 아님")
@@ -38,9 +38,10 @@ function modifyCheck() {
 </head>
 <body>
 	<table width="500" border="1">
-		<form method="post" action="*">
+		<form method="post" action="*" >
 		<input type="hidden" name="pageNum" value="${pageMaker.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.amount }"> 
+		
 			<tr>
 			<td>파티 번호</td>
 			<td>${party.p_id}</td>
@@ -92,13 +93,11 @@ function modifyCheck() {
 		</c:otherwise>
 		</c:choose>
 		
-		<input type="submit" value="목록" onclick="javascript:window.location='list'">
-<%-- 		<input type="button" value="삭제" onclick="javascript:window.location='party_delete?u_id=${party.u_id}&pageNum=${pageMaker.pageNum }&amount=${pageMaker.amount }&p_id=${party.p_id}'"> --%>
+		<input type="submit" value="목록" formaction="list">
 		<input type="button" value="삭제" onclick="deleteCheck()">
 	
 	
 		<input type="button" value="수정" onclick="modifyCheck()">
-		
 	
 		</form>
 	</table>

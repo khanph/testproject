@@ -221,18 +221,9 @@
     </delete>
     
     <update id="party_modify" parameterType="hashmap">
-		UPDATE PARTY SET
-	    P_PLATFORM = #{p_platform},
-	    P_TITLE = #{p_title},
-	    P_MAX = #{p_max},
-	    P_FINISH_DATE = #{p_finish_date,
-	    P_PRICE = #{p_price},
-	    P_CONTENT = #{p_content,jdbcType=VARCHAR},
-	    P_ADULT = #{p_adult},
-	    P_PLATFORM_ID = #{p_platform_id},
-	    P_PLATFORM_PASSWORD = #{p_platform_password},
-	    P_ADULT_PASSWORD = #{p_adult_password},
-		WHERE P_ID =#{p_id}
+    
+	    UPDATE PARTY SET P_PLATFORM =#{p_platform}, P_TITLE = #{p_title}, P_MAX =#{p_max},P_FINISH_DATE = #{p_finish_date},P_PRICE = #{p_price},P_CONTENT = #{p_content},P_ADULT =#{p_adult},P_PLATFORM_ID = #{p_platform_id},P_PLATFORM_PASSWORD = #{p_platform_password},P_ADULT_PASSWORD = #{p_adult_password} WHERE P_ID =#{p_id, jdbcType = VARCHAR}
+	    
 	</update>
     
 </mapper>

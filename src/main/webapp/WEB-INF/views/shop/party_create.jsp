@@ -72,7 +72,7 @@
 		</tr>
 		<tr>
 			<td>자유 입력</td>
-			<td> <textarea rows="20" cols="60"></textarea> </td>
+			<td> <textarea rows="20" cols="60" name="p_content"></textarea> </td>
 		</tr>
 		<tr>
 			<td colspan="2">

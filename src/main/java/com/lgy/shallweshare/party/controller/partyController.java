@@ -195,7 +195,8 @@ public class partyController {
 		pService.party_modify(param);
 		model.addAttribute("cri", cri);
 		
-		return "redirect:party_page";
+//		return "redirect:party_page";
+		return "redirect:list";
 	}
 	
 	

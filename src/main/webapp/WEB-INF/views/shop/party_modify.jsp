@@ -27,6 +27,7 @@
 		<form method="post" action="party_modifyCheck">
 		<input type="hidden" name="pageNum" value="${cri.pageNum}"> 
 		<input type="hidden" name="amount" value="${cri.amount}"> 
+		<input type="hidden" name="p_id" value="${party.p_id}"> 
 
 			<td>파티 플랫폼</td>
 			<td>
@@ -75,7 +76,7 @@
 		</tr>
 		<tr>
 			<td>자유 입력</td>
-			<td> <textarea rows="20" cols="60">${party.p_content}</textarea> </td>
+			<td> <textarea rows="20" cols="60" name="p_content">${party.p_content}</textarea> </td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

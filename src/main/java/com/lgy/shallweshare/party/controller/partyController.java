@@ -207,11 +207,6 @@ public class partyController {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
 		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 		response.setHeader("Expires", "0"); // Proxies
-//		int u_id=Integer.parseInt(session.getAttribute("u_id").toString());
-//		log.info("@@@@@@####### u_id==="+u_id);
-//		usersDto dto=userService.getUserInfo(u_id);
-//		log.info("@@@@@@####### dto==="+dto);
-		
 		
 		log.info("@@@@@@####### list");
 		log.info("@# cri ====>"+cri);
@@ -222,7 +217,6 @@ public class partyController {
 		int total = pService.getTotalCount();
 		log.info("@# total ====>"+total);
 		
-//		rttr.addAttribute("user", dto);
 		model.addAttribute("pageMaker", new PageDTO(total, cri));
 		
 		return "shop/list";
@@ -373,7 +367,6 @@ public class partyController {
 				if (dto.getU_pw().equals(u_pw)) {
 					session.setAttribute("u_id", dto.getU_id());
 					session.setAttribute("user", dto);
-//					("user", dto);
 					log.info("@# login 성공");
 					return "redirect:list";
 				}else {
@@ -381,6 +374,5 @@ public class partyController {
 				}
 			}
 			return "shop/login";
-		
 	}
 }

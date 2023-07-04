@@ -29,25 +29,23 @@
 			height: 50;
 		}
 		.main{
-			width: 200;
-			height: 50;
+			width: 300;
+			height: 100;
 		}
 	</style>
 </head>
 <body>
-	<table border="1" class="head">
+	<table class="head">
 		<tr>
-			<td colspan="3">
+			<td colspan="5">
 				<a href="list">
 					<img src="../resources/img/shallweshare.png" class="main">
 				</a>
 			</td>
+<!-- 			<td> -->
+<!-- 				<input type="button" value="파티만들기" onclick="loginCheck()"> -->
+<!-- 			</td> -->
 			<td>
-<!-- 				<a href="party_create" class="">파티만들기</a> -->
-				<input type="button" value="파티만들기" onclick="loginCheck()">
-			</td>
-			<td>
-<!-- 				<a href="login" class="login">로그인</a> -->
 				<input type="button" value="로그인" onclick="window.location='login'">
 			</td>
 		</tr>
@@ -76,6 +74,9 @@
 				<a href="listWatcha">
 					<img src="../resources/img/WATCHA.jpg">
 				</a>
+			</td>
+			<td>
+				<input type="button" value="파티만들기" onclick="loginCheck()">
 			</td>
 		</tr>
 	</table>

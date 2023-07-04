@@ -28,20 +28,27 @@
 			width: 120;
 			height: 50;
 		}
+		.main{
+			width: 200;
+			height: 50;
+		}
 	</style>
 </head>
 <body>
 	<table border="1" class="head">
 		<tr>
 			<td colspan="3">
-				<a href="list">shallweshare</a>
+				<a href="list">
+					<img src="../resources/img/shallweshare.png" class="main">
+				</a>
 			</td>
 			<td>
 <!-- 				<a href="party_create" class="">파티만들기</a> -->
-				<input type="button" class="makeParty" value="파티만들기" onclick="loginCheck()">
+				<input type="button" value="파티만들기" onclick="loginCheck()">
 			</td>
 			<td>
-				<a href="login" class="login">로그인</a>
+<!-- 				<a href="login" class="login">로그인</a> -->
+				<input type="button" value="로그인" onclick="window.location='login'">
 			</td>
 		</tr>
 		<tr>

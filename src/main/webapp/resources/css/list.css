@@ -7,14 +7,12 @@
 		}
 
 		.head{
-			margin-left:auto; 
- 		 	margin-right:auto;
+			margin : auto;
+		    width : 40%;
 		}
 		.body{
-/* 			margin : auto; */
-/* 		    width : 80%; */
-			margin-left:auto; 
- 		 	margin-right:auto;
+			margin : auto;
+		    width : 80%;
 		}
 		th, td {
 		  text-align: center;

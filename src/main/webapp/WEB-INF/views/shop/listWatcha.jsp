@@ -6,33 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-		table{
-			margin : auto;
-		    // 가로 넓이도 지정해주면 좋습니다.
-		    width : 80%;
-		}
-		.head{
-			margin : auto;
-		    width :40%;
-		}
-		th, td {
-		  text-align: center;
-		}
-		.div_page ul{
-			display: flex;
-			list-style: none;
-			justify-content: center;
-		}
-		img{
-			width: 120;
-			height: 50;
-		}
-		.main{
-			width: 300;
-			height: 100;
-		}
-	</style>
+<link href="../resources/css/list.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 	<table class="head">
@@ -42,9 +17,6 @@
 					<img src="../resources/img/shallweshare.png" class="main">
 				</a>
 			</td>
-<!-- 			<td> -->
-<!-- 				<input type="button" value="파티만들기" onclick="loginCheck()"> -->
-<!-- 			</td> -->
 			<td>
 				<input type="button" value="로그인" onclick="window.location='login'">
 			</td>
@@ -80,7 +52,7 @@
 			</td>
 		</tr>
 	</table>
-	<table border="1">
+	<table border="1" class="body">
 		<tr>
 		 	<td>파티 번호 </td>
 		 	<td>파티장 </td>

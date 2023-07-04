@@ -45,7 +45,7 @@
 				<input type="submit" value="로그인">
 			</td>
 			<td> 
-				<input type="button" value="취소" onclick="history.back;">
+				<input type="button" value="취소" onclick="history.go(-1);">
 			</td>
 		</tr>
 	</table>

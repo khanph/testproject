@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <style type="text/css">
 		table{
 			margin : auto;
@@ -31,15 +30,15 @@
 		}
 	</style>
 </head>
-<body >
-	
+<body>
 	<table border="1" class="head">
 		<tr>
 			<td colspan="3">
-				<a href="list">모집/신청</a>
+				<a href="list">shallweshare</a>
 			</td>
 			<td>
-				<a href="party_create">파티만들기</a>
+<!-- 				<a href="party_create" class="">파티만들기</a> -->
+				<input type="button" class="makeParty" value="파티만들기" onclick="loginCheck()">
 			</td>
 			<td>
 				<a href="login" class="login">로그인</a>
@@ -144,15 +143,26 @@
 		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
 		${user.getU_id()}
 	</form>
+	
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+//파티만들기 이동시 로그인 확인
 
-
-	var actionForm =$("#actionForm");
+	var u_id = '<%= session.getAttribute("u_id") %>';
+	function loginCheck() {
+			  console.log("@# u_id==>"+u_id);
+		if (u_id==='null') {
+			  alert("로그인 해라")
+		 	window.location='login';
+		}else {
+			 	window.location='party_create?u_id=${user.getU_id()}';
+		}
+	}
 	
 // 	페이지번호 처리
+	var actionForm =$("#actionForm");
 	$(".paginate_button a").on("click", function(e){
 		e.preventDefault();
 		console.log("@# href==>"+$(this).attr("href"));

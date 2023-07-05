@@ -27,14 +27,24 @@
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-7">
+                <div class="container px-10">
                     <a class="navbar-brand" href="list"><span class="fw-bolder text-primary">shallweshare</span></a>
-                    </span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="index.html">ㅇㅇ님 환영합니다</a></li>
                             <li class="nav-item"><a class="nav-link" href="resume.html">로그아웃</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-7">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">넷플릿스</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">웨이브</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,7 +117,7 @@
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
 	</form>
-	<form method="posdt" action="#" id="actionForm">
+	<form method="post" action="#" id="actionForm">
 		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
 		${user.getU_id()}
 	</form>

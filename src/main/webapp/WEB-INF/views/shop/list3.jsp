@@ -119,7 +119,7 @@
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
 	</form>
-	<form method="posdt" action="#" id="actionForm">
+	<form method="post" action="#" id="actionForm">
 		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
 		${user.getU_id()}
 	</form>

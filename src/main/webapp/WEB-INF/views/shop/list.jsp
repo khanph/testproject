@@ -26,29 +26,117 @@
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-warning py-3">
                 <div class="container px-10">
-                    <a class="navbar-brand" href="list"><span class="fw-bolder text-primary">shallweshare</span></a>
+                    <a class="navbar-brand" href="list">
+	                    <span class="fw-bolder text-primary">
+	                  	   <img src="../resources/img/shallweshare.png" alt="Bootstrap" width="250" height="50">
+	                    </span>
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">ㅇㅇ님 환영합니다</a></li>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 Large  fw-bolder ">
+                            <li class="nav-item"><a class="nav-link " href="index.html" >티모님 환영합니다</a></li>
                             <li class="nav-item"><a class="nav-link" href="resume.html">로그아웃</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-7">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">넷플릿스</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">웨이브</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+       <div class="container px-40 py-50" id="hanging-icons" style="width: 600px">
+		    <h2 class="pb-2 border-bottom text-center text-green">파티</h2>
+		    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스</p>
+		          <a href="#" class="btn btn-primary">
+					참여
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  
+  
+  
+  
+<!--             SideBar -->
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+			    <div class="dropdown">
+			      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+			        <img src="../resources/img/Teemo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+			        <strong>티모님</strong>
+			      </a>
+			      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+			        <li><a class="dropdown-item" href="#">프로필</a></li>
+			        <li><a class="dropdown-item" href="#">결재내역</a></li>
+			        <li><a class="dropdown-item" href="#"></a></li>
+			        <li><hr class="dropdown-divider"></li>
+			        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+			      </ul>
+			    </div>
+			    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+			      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+			      <span class="fs-4"></span>
+			    </a>
+			    <hr>
+			    <ul class="nav nav-pills flex-column mb-auto">
+			      <li>
+			        <a href="#" class="nav-link text-white">
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+			          넷플릿스
+			        </a>
+			      </li>
+			      <li>
+			        <a href="#" class="nav-link text-white">
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+			          웨이브
+			        </a>
+			      </li>
+			      <li>
+			        <a href="#" class="nav-link text-white">
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+			         디즈니
+			        </a>
+			      </li>
+			      <li>
+			        <a href="#" class="nav-link text-white">
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+			          왓챠
+			        </a>
+			      </li>
+			    </ul>
+			    <hr>
+			  </div>
+            
+            
             <!-- Header-->
             	<table border="1" class="body">
 		<tr>
@@ -143,7 +231,7 @@
             </section>
         </main>
         <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
+        <footer class="bg-warning py-4 mt-0">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>

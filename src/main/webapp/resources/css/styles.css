@@ -10,6 +10,12 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
+ 
+/* Bootstrap Navigation Overriding by Readiz */
+.navbar{
+  background-color: #e74c3c;
+}
 :root {
   --bs-blue: #1e30f3;
   --bs-indigo: #6610f2;
@@ -3870,6 +3876,7 @@ textarea.form-control-lg {
   .navbar-expand-sm .navbar-nav .nav-link {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
+    color: #bd5d38;
   }
   .navbar-expand-sm .navbar-nav-scroll {
     overflow: visible;

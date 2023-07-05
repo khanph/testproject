@@ -42,6 +42,12 @@
                     </div>
                 </div>
             </nav>
+            
+            
+            
+            
+            
+<!--             파티방 -->
        <div class="container px-40 py-50" id="hanging-icons" style="width: 600px">
 		    <h2 class="pb-2 border-bottom text-center text-green">파티</h2>
 		    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">

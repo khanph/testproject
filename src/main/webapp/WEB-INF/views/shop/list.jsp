@@ -46,17 +46,15 @@
             
             
         <div class="row align-items-start">
-            
-		  
-  
   
 <!--             SideBar -->
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px">
+            <div class="d-flex flex-column flex-shrink-0 p-5 text-white bg-dark" style="width: 250px'">
 			    <div class="dropdown">
 			      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-			        <img src="../resources/img/Teemo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+			        <img src="../resources/img/Teemo.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
 			        <strong>티모님</strong>
 			      </a>
+			       
 			      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
 			        <li><a class="dropdown-item" href="#">프로필</a></li>
 			        <li><a class="dropdown-item" href="#">결재내역</a></li>
@@ -95,134 +93,52 @@
 			          왓챠
 			        </a>
 			      </li>
+			      <li>
+			        <a href="#" class="nav-link text-white">
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+			          티빙
+			        </a>
+			      </li>
 			    </ul>
 			    <hr>
 			  </div>
 			  
 			  <!--             파티방 -->
-       <div class="container m-0 px-3 py-2" id="hanging-icons" style="width: 70%">
-		    <h2 class="pb-2 border-bottom text-center text-color-green">파티</h2>
+			  
+       <div class="container m-0 px-3 py-0" id="hanging-icons" style="width: 70%">
+		    <h2 class="pb-2 border-bottom text-center text-color-green"></h2>
 		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3">
+		    
+		    <c:forEach var="getParty_list" items="${getParty_list }">
 		      <div class="col d-flex align-items-start">
 		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
 		          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
 		        </div>
 		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
+		          <h2>${getParty_list.p_platform}</h2>
+		          <p>${getParty_list.p_title}</p>
+		          <p>${getParty_list.p_price}</p>
+		          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/></p>
+		          <a href="#" class="btn btn-dark">보기</a>
 		        </div>
 		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
-		        </div>
-		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스</p>
-		          <a href="#" class="btn btn-primary">
-					참여
-		          </a>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
-		        </div>
-		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
-		        </div>
-		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스</p>
-		          <a href="#" class="btn btn-primary">
-					참여
-		          </a>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
-			  
-        </div>    
-            
-            
-            <!-- Header-->
-            	<table border="1" class="body">
-		<tr>
-		 	<td>파티 번호 </td>
-		 	<td>파티장 </td>
-		 	<td>파티 인원  </td>
-		 	<td>파티 끝나는 기간 </td>
-		 	<td>파티 금액 </td>
-		 	<td>공유 플랫폼 </td>
-		 	<td>성인인증 유무 </td>
-		 	<td>제목</td>
-		 	<td>파티 만든 시간 </td>
-		</tr>
-		<c:forEach var="getParty_list" items="${getParty_list }">
-		<tr>
-		 	<td>${getParty_list.p_id }</td>
-		 	<td>${getParty_list.u_id }</td>
-		 	<td>${getParty_list.p_max }</td>
-		 	<td><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/></td>
-		 	<td>${getParty_list.p_price }</td>
-		 	<td>${getParty_list.p_platform }</td>
-		 	<td>${getParty_list.p_adult }</td>
-		 	<td>
-		 		<a class="move_link" href="${getParty_list.p_id}">${getParty_list.p_title }</a>
-		 	</td>
-		 	<td><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/> </td>
-		</tr>
-		</c:forEach>
-	</table>
+      		</c:forEach>
+	    </div>
+    </div>
+		  
+
 	
-	<div class="div_page">
-		<ul>
+		<div class="div_page">
+			<ul>
 			<c:if test="${pageMaker.prev}">
 				<li class="paginate_button">
-<!-- 					시작페이지 - 1 하면 이전의 10개 페이지 표시 -->
-<!-- 				ex>11->10(1~10), 21->20(11~20) -->
 					<a href="${pageMaker.startPage - 1}">
 						[Previous]
 					</a>
 				</li>
 			</c:if>
 			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-<%-- 				<li>${num}</li> --%>
-<%-- 				<li ${pageMaker.cri.pageNum == num ? "style='color:red'":""} > --%>
-<!-- 				현재 페이지는 배경색 노란색으로 표시 -->
 				<li class="paginate_button" ${pageMaker.cri.pageNum == num ? "style='background-color:yellow'":""} >
-<!-- 					클릭한 현재페이지 번호를 링크로 연결 -->
 					<a href="${num}">
 						[${num}]
 					</a>
@@ -230,15 +146,16 @@
 			</c:forEach>
 			<c:if test="${pageMaker.next}">
 				<li class="paginate_button">
-<!-- 					끝페이지 + 1 하면 이후의 10개 페이지 표시 -->
-<!-- 				ex>10->11(11~20), 20->21(21~30) -->
 					<a href="${pageMaker.endPage + 1}">
 						[Next]
 					</a>
 				</li>
 			</c:if>
-		</ul>
-	</div>
+			</ul>
+		</div>
+ </div>
+             
+            
 	
 	<form method="get" action="#" id="actionForm">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 

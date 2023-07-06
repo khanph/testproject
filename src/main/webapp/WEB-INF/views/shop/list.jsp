@@ -12,7 +12,7 @@
         <meta name="author" content="" />
         <title>shallweshare</title>
         <!-- Favicon-->
-		<link href="../resources/css/list.css" rel="stylesheet" type="text/css">
+<!-- 		<link href="../resources/css/list.css" rel="stylesheet" type="text/css"> -->
         <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
         <!-- Custom Google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,7 +48,7 @@
         <div class="row align-items-start">
   
 <!--             SideBar -->
-            <div class="d-flex flex-column flex-shrink-0 p-5 text-white bg-dark" style="width: 250px'">
+  				<div class="d-flex flex-column flex-shrink-0 p-5 text-white bg-dark" style="width: 250px;">
 			    <div class="dropdown">
 			      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
 			        <img src="../resources/img/Teemo.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
@@ -71,7 +71,7 @@
 			    <ul class="nav nav-pills flex-column mb-auto">
 			      <li>
 			        <a href="#" class="nav-link text-white">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+			          <svg class="bi me-2" width="16" height="16"><use xlink:href="../resources/img/NETFLIX.png"></use></svg>
 			          넷플릿스
 			        </a>
 			      </li>
@@ -105,7 +105,7 @@
 			  
 			  <!--             파티방 -->
 			  
-       <div class="container m-0 px-3 py-0" id="hanging-icons" style="width: 70%">
+       <div class="container m-3 px-5 py-0" id="hanging-icons" style="width: 70%">
 		    <h2 class="pb-2 border-bottom text-center text-color-green"></h2>
 		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3">
 		    
@@ -117,42 +117,44 @@
 		        <div>
 		          <h2>${getParty_list.p_platform}</h2>
 		          <p>${getParty_list.p_title}</p>
-		          <p>${getParty_list.p_price}</p>
-		          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/></p>
-		          <a href="#" class="btn btn-dark">보기</a>
+		          <p>${getParty_list.p_price}원</p>
+		          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/>까지</p>
+		          <a href="#" class="btn btn-dark">파티보기</a>
 		        </div>
 		      </div>
       		</c:forEach>
-	    </div>
-    </div>
+	    	
+	    	</div>
+   		</div>
 		  
 
-	
-		<div class="div_page">
-			<ul>
-			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button">
-					<a href="${pageMaker.startPage - 1}">
-						[Previous]
-					</a>
-				</li>
-			</c:if>
-			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-				<li class="paginate_button" ${pageMaker.cri.pageNum == num ? "style='background-color:yellow'":""} >
-					<a href="${num}">
-						[${num}]
+<!-- 	페이징  -->
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination pagination-lg justify-content-center">
+		  	<c:if test="${pageMaker.prev}">
+		    	<li class="page-item">
+		    		<a class="page-link" href="${pageMaker.startPage - 1}" aria-label="Previous">
+		    			<span aria-hidden="true">&laquo;</span>
+		    		</a>
+	    		</li>
+		    </c:if>
+	    	<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+			    <li class="page-item " ${pageMaker.cri.pageNum == num } >
+					<a class="page-link" href="${num}">
+						${num}
 					</a>
 				</li>
 			</c:forEach>
 			<c:if test="${pageMaker.next}">
-				<li class="paginate_button">
-					<a href="${pageMaker.endPage + 1}">
-						[Next]
+				<li class="page-item ">
+					<a class="page-link" href="${pageMaker.endPage + 1}" aria-label="Next">
+						 <span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>
 			</c:if>
-			</ul>
-		</div>
+		  </ul>
+		</nav>
+		
  </div>
              
             
@@ -166,13 +168,14 @@
 		${user.getU_id()}
 	</form>
             
+            <div class="row align-items-start">
+            
             <!-- About Section-->
-            <section class="bg-light py-2">
-                <div class="container px-2">
-                    <div class="row gx-2 justify-content-center">
-                        <div class="col-xxl-8">
+                <div class="container px-2" >
+                    <div class="row gx-2 justify-content-center " >
+                        <div class="col-sm-8">
                             <div class="text-center my-5">
-                                <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">shallweshare</span></h2>
+                                <h2 class="display-5 fw-bolder"><span class="text-dark d-inline">shallweshare</span></h2>
                                 <p class="lead fw-light mb-4">안전한 OTT 공유서비스</p>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
                                 <div class="d-flex justify-content-center fs-2 gap-4">
@@ -201,6 +204,8 @@
                 </div>
             </div>
         </footer>
+        
+        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -226,7 +231,7 @@
 	
 // 	페이지번호 처리
 	var actionForm =$("#actionForm");
-	$(".paginate_button a").on("click", function(e){
+	$(".page-item a").on("click", function(e){
 		e.preventDefault();
 		console.log("@# href==>"+$(this).attr("href"));
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));

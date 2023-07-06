@@ -50,88 +50,57 @@
                 </div>
             </nav>
      
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="container px-10 p-0">
+                    <a class="navbar-brand m-0 ms-5" href="list">
+	                    <span class="fw-bolder text-primary m">
+	                    	 <img src="../resources/img/NETFLIX.png" alt="" width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="list">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/wavve.png" alt="" width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="list">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/TVING.jpg" alt="" width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="list">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/DISNEY.jpg" alt="" width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand me-5" href="list">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/WATCHA.jpg" alt="" width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand ms-5" href="list">
+	                    <span class="fw-bolder text-primary">
+	                    	 <div class="btn btn-warning">파티만들기</div>
+	                    </span>
+                    </a>
+                    </div>
+                </div>
+            </nav>
+            <hr>
+     
             
-            
-            
-        <div class="row align-items-start">
-  
-<!--             SideBar -->
-			<div class="d-flex flex-column flex-shrink-0 p-5 text-white bg-dark " style="width: 250px; height: 600px;">
-			    <div class="dropdown">
-			      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-			        <img src="../resources/img/Teemo.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
-			        <strong>티모님</strong>
-			      </a>
-			       
-			      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
-			        <li><a class="dropdown-item" href="#">프로필</a></li>
-			        <li><a class="dropdown-item" href="#">결재내역</a></li>
-			        <li><a class="dropdown-item" href="#"></a></li>
-			        <li><hr class="dropdown-divider"></li>
-			        <li><a class="dropdown-item" href="#">로그아웃</a></li>
-			      </ul>
-			    </div>
-			    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-			      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-			      <span class="fs-4"></span>
-			    </a>
-			    
-			    <hr>
-			    
-			    <ul class="nav nav-pills flex-column mb-auto ">
-			    
-			      <li>
-			        <a href="listNetflix" class="nav-link text-white ">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="../resources/img/NETFLIX.png"></use></svg>
-			          넷플릿스
-			        </a>
-			      </li>
-			      
-			      <li>
-			        <a href="listWavve" class="nav-link text-white">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-			          웨이브
-			        </a>
-			      </li>
-			      
-			      <li>
-			        <a href="listTving" class="nav-link text-white">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-			         티빙
-			        </a>
-			      </li>
-			      
-			      <li>
-			        <a href="listDisney" class="nav-link text-white">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-			          디즈니
-			        </a>
-			      </li>
-			      
-			      <li>
-			        <a href="listWatcha" class="nav-link text-white">
-			          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-			          왓챠
-			        </a>
-			      </li>
-			      
-			    </ul>
-			    <hr>
-		  </div>
 			  
 			  <!--             파티방 -->
 			  
-      		<div class="container m-3 px-5 py- pb-5" id="hanging-icons" style="width: 70%">
-				<h2 class="pb-2 border-bottom text-center"></h2>
-		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3">
+      		<div class="container " id="hanging-icons" style="width: 70%">
+				<h2 class="pb-2 text-center">싸움은 끝난지 않는다. 파티 생활 저렴하게 지금 시작 ~! </h2>
+           	</div>
+		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
 		    <c:forEach var="getParty_list" items="${getParty_list }">
-			<div class="border border-warning">
-		    	<div class="col d-flex align-items-start col ">
-			    	<div class="icon-square bg-light text-dark flex-shrink-0 me-3 align-center">
-			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-			        </div>
+			<div class="border border-3 border-warning rounded-pill">
+		    	<div class="col d-flex justify-content-center">
 			        <div>
-			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}" class="btn btn-white">
+			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
 				          <h2>${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
 				          <p>${getParty_list.p_price}원</p>
@@ -150,7 +119,7 @@
 <!-- 	페이징  -->
 	<div>
 		<nav aria-label="Page navigation example">
-		  <ul class="pagination pagination-lg justify-content-center bg-dark ">
+		  <ul class="pagination pagination-lg justify-content-center bg-dark mt-5">
 		  	<c:if test="${pageMaker.prev}">
 		    	<li class="page-item">
 		    		<a class="page-link" href="${pageMaker.startPage - 1}" aria-label="Previous">
@@ -176,7 +145,6 @@
 		</nav>
 		</div>
 		
- </div>
 	<form method="get" action="#" id="actionForm">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
 		<input type="hidden" name="amount" value="${pageMaker.cri.amount}"> 
@@ -210,7 +178,7 @@
         <!-- Footer-->
         <footer class="bg-warning py-4 mt-0">
             <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="row align-items-center justify-content-center flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
                     <div class="col-auto">
                         <a class="small" href="#!">Privacy</a>

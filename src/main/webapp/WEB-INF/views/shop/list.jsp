@@ -45,56 +45,13 @@
             
             
             
+        <div class="row align-items-start">
             
-            
-<!--             파티방 -->
-       <div class="container px-40 py-50" id="hanging-icons" style="width: 600px">
-		    <h2 class="pb-2 border-bottom text-center text-green">파티</h2>
-		    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
-		        </div>
-		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스파티</p>
-		          <a href="#" class="btn btn-primary">
-		            참여
-		          </a>
-		        </div>
-		      </div>
-		      <div class="col d-flex align-items-start">
-		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
-		        </div>
-		        <div>
-		          <h2>Featured title</h2>
-		          <p>넷플릭스</p>
-		          <a href="#" class="btn btn-primary">
-					참여
-		          </a>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
 		  
   
   
-  
 <!--             SideBar -->
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 250px">
 			    <div class="dropdown">
 			      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
 			        <img src="../resources/img/Teemo.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -141,6 +98,82 @@
 			    </ul>
 			    <hr>
 			  </div>
+			  
+			  <!--             파티방 -->
+       <div class="container m-0 px-3 py-2" id="hanging-icons" style="width: 70%">
+		    <h2 class="pb-2 border-bottom text-center text-color-green">파티</h2>
+		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3">
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스</p>
+		          <a href="#" class="btn btn-primary">
+					참여
+		          </a>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스파티</p>
+		          <a href="#" class="btn btn-primary">
+		            참여
+		          </a>
+		        </div>
+		      </div>
+		      <div class="col d-flex align-items-start">
+		        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+		          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+		        </div>
+		        <div>
+		          <h2>Featured title</h2>
+		          <p>넷플릭스</p>
+		          <a href="#" class="btn btn-primary">
+					참여
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+			  
+        </div>    
             
             
             <!-- Header-->

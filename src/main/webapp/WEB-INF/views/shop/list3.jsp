@@ -5,9 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../resources/css/list.css" rel="stylesheet" type="text/css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>shallweshare</title>
 </head>
 <body>
 	<table class="head">

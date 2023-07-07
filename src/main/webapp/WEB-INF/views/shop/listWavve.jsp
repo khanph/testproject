@@ -5,124 +5,112 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../resources/css/list.css" rel="stylesheet" type="text/css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>shallweshare</title>
 </head>
+
 <body>
-	<table class="head">
-		<tr>
-			<td colspan="5">
-				<a href="list">
-					<img src="../resources/img/shallweshare.png" class="main">
-				</a>
-			</td>
-			<td>
-				<input type="button" value="로그인" onclick="window.location='login'">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="listNetflix">
-					<img src="../resources/img/NETFLIX.png">
-				</a>
-			</td>
-			<td>
-				<a href="listWavve">
-					<img src="../resources/img/wavve.png">
-				</a>
-			</td>
-			<td>
-				<a href="listTving">
-					<img src="../resources/img/TVING.jpg">
-				</a>
-			</td>
-			<td>
-				<a href="listDisney">
-					<img src="../resources/img/DISNEY.jpg">
-				</a>
-			</td>
-			<td>
-				<a href="listWatcha">
-					<img src="../resources/img/WATCHA.jpg">
-				</a>
-			</td>
-			<td>
-				<input type="button" value="파티만들기" onclick="loginCheck()">
-			</td>
-		</tr>
-	</table>
-	<table border="1" class="body">
-		<tr>
-		 	<td>파티 번호 </td>
-		 	<td>파티장 </td>
-		 	<td>파티 인원  </td>
-		 	<td>파티 끝나는 기간 </td>
-		 	<td>파티 금액 </td>
-		 	<td>공유 플랫폼 </td>
-		 	<td>성인인증 유무 </td>
-		 	<td>제목</td>
-		 	<td>파티 만든 시간 </td>
-		</tr>
-		<c:forEach var="getParty_list" items="${getParty_list }">
-		<tr>
-		 	<td>${getParty_list.p_id }</td>
-		 	<td>${getParty_list.u_id }</td>
-		 	<td>${getParty_list.p_max }</td>
-		 	<td><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/></td>
-		 	<td>${getParty_list.p_price }</td>
-		 	<td>${getParty_list.p_platform }</td>
-		 	<td>${getParty_list.p_adult }</td>
-		 	<td>
-		 		<a class="move_link" href="${getParty_list.p_id}">${getParty_list.p_title }</a>
-		 	</td>
-		 	<td><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/> </td>
-		</tr>
-		</c:forEach>
-	</table>
-	
-	<div class="div_page">
-		<ul>
-			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button">
-<!-- 					시작페이지 - 1 하면 이전의 10개 페이지 표시 -->
-<!-- 				ex>11->10(1~10), 21->20(11~20) -->
-					<a href="${pageMaker.startPage - 1}">
-						[Previous]
-					</a>
-				</li>
-			</c:if>
-			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-<%-- 				<li>${num}</li> --%>
-<%-- 				<li ${pageMaker.cri.pageNum == num ? "style='color:red'":""} > --%>
-<!-- 				현재 페이지는 배경색 노란색으로 표시 -->
-				<li class="paginate_button" ${pageMaker.cri.pageNum == num ? "style='background-color:yellow'":""} >
-<!-- 					클릭한 현재페이지 번호를 링크로 연결 -->
-					<a href="${num}">
-						[${num}]
+<%@include file ="header.jsp" %>
+
+ 		 <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="container px-10 p-0">
+                    <a class="navbar-brand m-0 ms-5" href="listNetflix">
+	                    <span class="fw-bolder text-primary m">
+	                    	 <img src="../resources/img/NETFLIX.png"  width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="listWavve">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/wavve.png"  width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="listTving">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/TVING.jpg"  width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand m-0" href="listDisney">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/DISNEY.jpg"  width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand me-5" href="listWatcha">
+	                    <span class="fw-bolder text-primary">
+	                    	 <img src="../resources/img/WATCHA.jpg"  width="170" height="60">
+	                    </span>
+                    </a>
+                    <a class="navbar-brand ms-5" href="party_create">
+	                    <span class="fw-bolder text-primary">
+	                    	 <div class="btn btn-warning">파티만들기</div>
+	                    </span>
+                    </a>
+                    </div>
+            </nav>
+            <hr>
+		  <!--             파티방 -->
+	  
+      		<div class="container " id="hanging-icons" style="width: 70%">
+				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
+           	</div>
+		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
+		    
+		    <c:forEach var="getParty_list" items="${getParty_list }">
+			<div class=" border border-3 border-warning rounded-pill">
+		    	<div class="col d-flex justify-content-center">
+			        <div>
+			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
+				          <h2><img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> ${getParty_list.p_platform}</h2>
+				          <p>${getParty_list.p_title}</p>
+				          <p>${getParty_list.p_price}원</p>
+				          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/>까지</p>
+			          </a>
+			        </div>
+			      </div>
+				</div>
+      		</c:forEach>
+	    	
+	    	</div>
+
+<!-- 	페이징  -->
+	<div>
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination pagination-lg justify-content-center bg-dark mt-5">
+		  	<c:if test="${pageMaker.prev}">
+		    	<li class="page-item">
+		    		<a class="page-link" href="${pageMaker.startPage - 1}" aria-label="Previous">
+		    			<span aria-hidden="true">&laquo;</span>
+		    		</a>
+	    		</li>
+		    </c:if>
+	    	<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+			    <li class="page-item " ${pageMaker.cri.pageNum == num } >
+					<a class="page-link" href="${num}">
+						${num}
 					</a>
 				</li>
 			</c:forEach>
 			<c:if test="${pageMaker.next}">
-				<li class="paginate_button">
-<!-- 					끝페이지 + 1 하면 이후의 10개 페이지 표시 -->
-<!-- 				ex>10->11(11~20), 20->21(21~30) -->
-					<a href="${pageMaker.endPage + 1}">
-						[Next]
+				<li class="page-item">
+					<a class="page-link " href="${pageMaker.endPage + 1}" aria-label="Next">
+						 <span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>
 			</c:if>
-		</ul>
-	</div>
-	
+		  </ul>
+		</nav>
+		</div>
+		
 	<form method="get" action="#" id="actionForm">
 		<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }"> 
-		<input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
+		<input type="hidden" name="amount" value="${pageMaker.cri.amount}"> 
 	</form>
-	<form method="posdt" action="#" id="actionForm">
+	<form method="post" action="#" id="actionForm">
 		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
 		${user.getU_id()}
 	</form>
+	
+	<%@include file ="footer.jsp" %>
 	
 </body>
 </html>
@@ -149,16 +137,7 @@
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 		actionForm.submit();
 	});
-	
-	
-	
-// 	게시글 처리
-	$(".move_link").on("click",function(e){
-		e.preventDefault();
-		var targetBno=$(this).attr("href");
-		actionForm.append("<input type='hidden' name='p_id' value='"+targetBno+"'>")
-		actionForm.attr("action", "party_page").submit();
-	});
+
 	
 </script>
 	

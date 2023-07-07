@@ -85,6 +85,9 @@ function modifyCheck() {
 				<textarea rows="20" cols="60" readonly="readonly">${party.p_content}</textarea>
 			</td> 
 		</tr>
+	</table>
+		
+		
 		<c:choose>
 		<c:when test="${ fn:length(participant_list)+1 < party.p_max}">
 			<input type="button" value="신청하기"
@@ -95,15 +98,9 @@ function modifyCheck() {
 			<h2>파티 모집이 완료되었습니다.</h2>
 		</c:otherwise>
 		</c:choose>
-		
-		<input type="submit" value="목록" formaction="list">
-		<input type="button" value="삭제" onclick="deleteCheck()">
-	
-	
-		<input type="button" value="수정" onclick="modifyCheck()">
-	
-		</form>
-	</table>
+			<input type="submit" value="목록" formaction="list">
+			<input type="button" value="삭제" onclick="deleteCheck()">
+			<input type="button" value="수정" onclick="modifyCheck()">
 </body>
 </html>
 

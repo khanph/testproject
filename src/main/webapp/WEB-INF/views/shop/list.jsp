@@ -6,27 +6,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>shallweshare</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../resources/css/styles.css" rel="stylesheet" />
-
+        <link href="../resources/css/font.css" rel="stylesheet" />
+		
 	
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
-            <!-- Navigation-->
+            <!-- header-->
             <nav class="navbar navbar-expand-lg navbar-light bg-warning py-3">
                 <div class="container px-10">
                     <a class="navbar-brand" href="list">
@@ -68,60 +66,56 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
                 <div class="container px-10 p-0">
-                    <a class="navbar-brand m-0 ms-5" href="list">
+                    <a class="navbar-brand m-0 ms-5" href="listNetflix">
 	                    <span class="fw-bolder text-primary m">
-	                    	 <img src="../resources/img/NETFLIX.png" alt="" width="170" height="60">
+	                    	 <img src="../resources/img/NETFLIX.png"  width="170" height="60">
 	                    </span>
                     </a>
-                    <a class="navbar-brand m-0" href="list">
+                    <a class="navbar-brand m-0" href="listWavve">
 	                    <span class="fw-bolder text-primary">
-	                    	 <img src="../resources/img/wavve.png" alt="" width="170" height="60">
+	                    	 <img src="../resources/img/wavve.png"  width="170" height="60">
 	                    </span>
                     </a>
-                    <a class="navbar-brand m-0" href="list">
+                    <a class="navbar-brand m-0" href="listTving">
 	                    <span class="fw-bolder text-primary">
-	                    	 <img src="../resources/img/TVING.jpg" alt="" width="170" height="60">
+	                    	 <img src="../resources/img/TVING.jpg"  width="170" height="60">
 	                    </span>
                     </a>
-                    <a class="navbar-brand m-0" href="list">
+                    <a class="navbar-brand m-0" href="listDisney">
 	                    <span class="fw-bolder text-primary">
-	                    	 <img src="../resources/img/DISNEY.jpg" alt="" width="170" height="60">
+	                    	 <img src="../resources/img/DISNEY.jpg"  width="170" height="60">
 	                    </span>
                     </a>
-                    <a class="navbar-brand me-5" href="list">
+                    <a class="navbar-brand me-5" href="listWatcha">
 	                    <span class="fw-bolder text-primary">
-	                    	 <img src="../resources/img/WATCHA.jpg" alt="" width="170" height="60">
+	                    	 <img src="../resources/img/WATCHA.jpg"  width="170" height="60">
 	                    </span>
                     </a>
-                    <a class="navbar-brand ms-5" href="list">
+                    <a class="navbar-brand ms-5" href="party_create">
 	                    <span class="fw-bolder text-primary">
 	                    	 <div class="btn btn-warning">파티만들기</div>
 	                    </span>
                     </a>
                     </div>
-                </div>
             </nav>
             <hr>
      
-            
-			  
 			  <!--             파티방 -->
-			  
+	  
       		<div class="container " id="hanging-icons" style="width: 70%">
-				<h2 class="pb-2 text-center">영웅은 언제나 환영이라구. 파티 생활 지금 시작 ~! </h2>
+				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
            	</div>
 		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
+		    
 		    <c:forEach var="getParty_list" items="${getParty_list }">
-			<div class="border border-3 border-warning rounded-pill">
+			<div class=" border border-3 border-warning rounded-pill">
 		    	<div class="col d-flex justify-content-center">
 			        <div>
 			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
-				          <h2>
-					          <img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> 
-					          ${getParty_list.p_platform}</h2>
+				          <h2><img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> ${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
-				          <p>파티비용:${getParty_list.p_price}원</p>
-				          <p><fmt:formatDate pattern="yyyy.MM.dd" value="${getParty_list.p_finish_date }"/>까지</p>
+				          <p>${getParty_list.p_price}원</p>
+				          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/>까지</p>
 			          </a>
 			        </div>
 			      </div>
@@ -129,9 +123,6 @@
       		</c:forEach>
 	    	
 	    	</div>
-   		</div>
-   		
-		  
 
 <!-- 	페이징  -->
 	<div>
@@ -178,8 +169,8 @@
                     <div class="row gx-2 justify-content-center ">
                         <div class="col-sm-8 h-5">
                             <div class="text-center">
-                                <h2 class="display-5 fw-bolder"><span class="text-dark d-inline">shallweshare</span></h2>
-                                <p class="lead fw-light mb-4">안전한 OTT 공유서비스</p>
+<!--                                 <h2 class="display-5 fw-bolder"><span class="text-dark d-inline">shallweshare</span></h2> -->
+<!--                                 <p class="lead fw-light mb-4">안전한 OTT 공유서비스</p> -->
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
                                 <div class="d-flex justify-content-center fs-2 gap-4">
                                     <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
@@ -217,7 +208,7 @@
 </body>
 </html>
      
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?v=10"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
 //파티만들기 이동시 로그인 확인
@@ -242,13 +233,6 @@ function loginCheck() {
 	});
 	
 	
-// 	게시글 처리
-// 	$(".btn btn-white").on("click",function(e){
-// 		e.preventDefault();
-// 		var targetBno=$(this).attr("href");
-// 		actionForm.append("<input type='hidden' name='p_id' value='"+targetBno+"'>")
-// 		actionForm.attr("action", "party_page").submit();
-// 	});
 	
 </script>
      

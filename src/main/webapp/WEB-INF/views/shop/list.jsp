@@ -22,8 +22,10 @@
 		
 	
     </head>
-    <body class="d-flex flex-column h-100">
+<!--     <body class="d-flex flex-column h-100"> -->
+    <body >
         <main class="flex-shrink-0">
+        
             <!-- header-->
             <nav class="navbar navbar-expand-lg navbar-light bg-warning py-3">
                 <div class="container px-10">
@@ -105,24 +107,26 @@
       		<div class="container " id="hanging-icons" style="width: 70%">
 				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
            	</div>
-		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
+		    <div class="row g-3 row-cols-4 p-5 ms-5 me-5 d-flex justify-content-center ">
+<!-- 		    <div class="row g-3 row-cols-4 d-flex justify-content-center "> -->
 		    
 		    <c:forEach var="getParty_list" items="${getParty_list }">
-			<div class=" border border-3 border-warning rounded-pill">
-		    	<div class="col d-flex justify-content-center">
-			        <div>
-			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
+			<div class=" border border-3 border-warning m-3 p-0 rounded ">
+			        <div class="col d-flex justify-content-center ">
+			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-lg btn-light" style="width: 100%">
 				          <h2><img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> ${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
-				          <p>${getParty_list.p_price}원</p>
-				          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/>까지</p>
+				          <p>1/4</p>
+				          <p><fmt:formatDate pattern="yyyy.MM.dd" value="${getParty_list.p_finish_date }"/>까지
+				           &laquo;<b> ${getParty_list.p_price}원</b> &raquo; </p>
+				          
 			          </a>
 			        </div>
 			      </div>
-				</div>
       		</c:forEach>
+      		
+			</div>
 	    	
-	    	</div>
 
 <!-- 	페이징  -->
 	<div>
@@ -162,9 +166,8 @@
 		${user.getU_id()}
 	</form>
 	
-            
             <!-- About Section-->
-            <section class="bg-light py-2">
+            <section class="bg-light py-2 fixed-bottom">
                 <div class="container px-2" >
                     <div class="row gx-2 justify-content-center ">
                         <div class="col-sm-8 h-5">
@@ -181,10 +184,9 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            
         <!-- Footer-->
-        <footer class="bg-warning py-4 mt-0">
+        <footer class="bg-warning py-4 mt-0 ">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-center flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
@@ -198,7 +200,8 @@
                 </div>
             </div>
         </footer>
-        
+            </section>
+            </main>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -231,8 +234,17 @@ function loginCheck() {
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 		actionForm.submit();
 	});
-	
-	
+	$(document).ready(function() {
+		  // 마우스 포인트가 올라왔을 때 강조 효과
+		  $(".party-box").mouseenter(function() {
+		    $(this).addClass("highlight");
+		  });
+
+		  // 마우스 포인트가 나갔을 때 원래 상태로 복원
+		  $(".party-box").mouseleave(function() {
+		    $(this).removeClass("highlight");
+		  });
+		});
 	
 </script>
      

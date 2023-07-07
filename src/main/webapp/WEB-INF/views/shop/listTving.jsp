@@ -12,7 +12,8 @@
 <body>
 <%@include file ="header.jsp" %>
 
- 		 <!-- Navigation-->
+ 		
+            <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
                 <div class="container px-10 p-0">
                     <a class="navbar-brand m-0 ms-5" href="listNetflix">
@@ -48,29 +49,32 @@
                     </div>
             </nav>
             <hr>
-		  <!--             파티방 -->
+     
+			  <!--             파티방 -->
 	  
       		<div class="container " id="hanging-icons" style="width: 70%">
 				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
            	</div>
-		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
+		    <div class="row g-3 row-cols-4 p-5 ms-5 me-5 d-flex justify-content-center ">
+<!-- 		    <div class="row g-3 row-cols-4 d-flex justify-content-center "> -->
 		    
 		    <c:forEach var="getParty_list" items="${getParty_list }">
-			<div class=" border border-3 border-warning rounded-pill">
-		    	<div class="col d-flex justify-content-center">
-			        <div>
-			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
+			<div class=" border border-3 border-warning m-3 p-0 rounded ">
+			        <div class="col d-flex justify-content-center ">
+			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-lg btn-light" style="width: 100%">
 				          <h2><img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> ${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
-				          <p>${getParty_list.p_price}원</p>
-				          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_finish_date }"/>까지</p>
+				          <p>1/4</p>
+				          <p><fmt:formatDate pattern="yyyy.MM.dd" value="${getParty_list.p_finish_date }"/>까지
+				           &laquo;<b> ${getParty_list.p_price}원</b> &raquo; </p>
+				          
 			          </a>
 			        </div>
 			      </div>
-				</div>
       		</c:forEach>
+      		
+			</div>
 	    	
-	    	</div>
 
 <!-- 	페이징  -->
 	<div>
@@ -109,7 +113,6 @@
 		<input type="hidden" name="u_id" value="${user.getU_id()}"> 
 		${user.getU_id()}
 	</form>
-	
 	<%@include file ="footer.jsp" %>
 	
 </body>

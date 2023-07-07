@@ -21,8 +21,8 @@
         <link href="../resources/css/fonts.css" rel="stylesheet" />
 </head>
 <body>
-	         <!-- About Section-->
-            <section class="bg-light py-2">
+	          <!-- About Section-->
+            <section class="bg-light py-2 fixed-bottom">
                 <div class="container px-2" >
                     <div class="row gx-2 justify-content-center ">
                         <div class="col-sm-8 h-5">
@@ -39,10 +39,9 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            </main>
+            
         <!-- Footer-->
-        <footer class="bg-warning py-4 mt-0">
+        <footer class="bg-warning py-4 mt-0 ">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-center flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
@@ -56,7 +55,7 @@
                 </div>
             </div>
         </footer>
-        
+            </section>
 
 </body>
 </html>

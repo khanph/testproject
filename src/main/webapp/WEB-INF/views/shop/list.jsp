@@ -37,14 +37,29 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-0 ml-0 mb-lg-0 Large  fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="resume.html">모집/신청</a></li>
+                            <li class="nav-item"><a class="nav-link" href="list">모집/신청</a></li>
                             <li class="nav-item"><a class="nav-link " href="index.html" >마이페이지</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">관리자페이지</a></li>
+                            <li class="nav-item"><a class="nav-link" href="admin.html">관리자페이지</a></li>
                         </ul>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 Large  fw-bolder ">
-                            <li class="nav-item"><a class="nav-link" href="resume.html">모집 </a></li>
-                            <li class="nav-item"><a class="nav-link " href="index.html" >티모님 환영합니다</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">로그아웃</a></li>
+<!--                             <li class="nav-item"><a class="nav-link " href="index.html" >티모님 환영합니다</a></li> -->
+                            <li class="nav-item">
+	                            <div class="dropdown">
+							      <a href="#" class=" nav-link dropdown-toggle p-0" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+							        <img src="../resources/img/Teemo.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
+							       티모님환영합니다
+							      </a>
+							       
+							      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+							        <li><a class="dropdown-item" href="#">프로필</a></li>
+							        <li><a class="dropdown-item" href="#">내파티</a></li>
+							        <li><a class="dropdown-item" href="#">결재내역</a></li>
+							        <li><a class="dropdown-item" href="#"></a></li>
+							        <li><hr class="dropdown-divider"></li>
+							        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+							      </ul>
+							    </div>
+						    </li>
                         </ul>
                     </div>
                 </div>
@@ -93,7 +108,7 @@
 			  <!--             파티방 -->
 			  
       		<div class="container " id="hanging-icons" style="width: 70%">
-				<h2 class="pb-2 text-center">싸움은 끝나지 않는다. 파티 생활 지금 시작 ~! </h2>
+				<h2 class="pb-2 text-center">영웅은 언제나 환영이라구. 파티 생활 지금 시작 ~! </h2>
            	</div>
 		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
 		    <c:forEach var="getParty_list" items="${getParty_list }">

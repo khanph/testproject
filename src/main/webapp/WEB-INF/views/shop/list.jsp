@@ -93,7 +93,7 @@
 			  <!--             파티방 -->
 			  
       		<div class="container " id="hanging-icons" style="width: 70%">
-				<h2 class="pb-2 text-center">싸움은 끝난지 않는다. 파티 생활 저렴하게 지금 시작 ~! </h2>
+				<h2 class="pb-2 text-center">싸움은 끝나지 않는다. 파티 생활 지금 시작 ~! </h2>
            	</div>
 		    <div class="row g-3 py-2 row-cols-2 row-cols-lg-3 p-5 m-5 p-5">
 		    <c:forEach var="getParty_list" items="${getParty_list }">
@@ -101,10 +101,12 @@
 		    	<div class="col d-flex justify-content-center">
 			        <div>
 			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-white">
-				          <h2>${getParty_list.p_platform}</h2>
+				          <h2>
+					          <img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> 
+					          ${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
-				          <p>${getParty_list.p_price}원</p>
-				          <p><fmt:formatDate pattern="yyyy.MM.dd. HH:mm" value="${getParty_list.p_created }"/>까지</p>
+				          <p>파티비용:${getParty_list.p_price}원</p>
+				          <p><fmt:formatDate pattern="yyyy.MM.dd" value="${getParty_list.p_finish_date }"/>까지</p>
 			          </a>
 			        </div>
 			      </div>
@@ -204,7 +206,7 @@
 <script>
 
 //파티만들기 이동시 로그인 확인
-var u_id = '<%= session.getAttribute("u_id") %>';
+var u_id = '<%=session.getAttribute("u_id") %>';
 function loginCheck() {
 		  console.log("@# u_id==>"+u_id);
 	if (u_id==='null') {

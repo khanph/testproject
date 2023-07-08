@@ -103,12 +103,10 @@
             <hr>
      
 			  <!--             파티방 -->
-	  
       		<div class="container " id="hanging-icons" style="width: 70%">
 				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
            	</div>
 		    <div class="row g-3 row-cols-4 p-5 ms-5 me-5 d-flex justify-content-center ">
-<!-- 		    <div class="row g-3 row-cols-4 d-flex justify-content-center "> -->
 		    
 		    <c:forEach var="getParty_list" items="${getParty_list }">
 			<div class=" border border-3 border-warning m-3 p-0 rounded ">
@@ -234,17 +232,6 @@ function loginCheck() {
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 		actionForm.submit();
 	});
-	$(document).ready(function() {
-		  // 마우스 포인트가 올라왔을 때 강조 효과
-		  $(".party-box").mouseenter(function() {
-		    $(this).addClass("highlight");
-		  });
-
-		  // 마우스 포인트가 나갔을 때 원래 상태로 복원
-		  $(".party-box").mouseleave(function() {
-		    $(this).removeClass("highlight");
-		  });
-		});
 	
 </script>
      

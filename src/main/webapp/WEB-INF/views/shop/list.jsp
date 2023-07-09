@@ -103,14 +103,16 @@
             <hr>
      
 			  <!--             파티방 -->
-      		<div class="container " id="hanging-icons" style="width: 70%">
-				<h2 class="pb-2 text-center"> 파티 생활 저렴하게 지금 시작 ~! </h2>
+      		<div class="container d-flex justify-content-center" id="hanging-icons">
+<!-- 				<h2 class="pb-2 text-center"> <img alt="" src="../resources/img/베너1.png" width="1200px"> </h2> -->
+                    	<img src="../resources/img/베너1.png" class="slideshow-image">
+                        <img src="../resources/img/베너2.png" class="slideshow-image">
            	</div>
-		    <div class="row g-3 row-cols-4 p-5 ms-5 me-5 d-flex justify-content-center ">
+		    <div class="row row-cols-4 ms-5 me-5 d-flex justify-content-center">
 		    
 		    <c:forEach var="getParty_list" items="${getParty_list }">
 			<div class=" border border-3 border-warning m-3 p-0 rounded ">
-			        <div class="col d-flex justify-content-center ">
+			        <div class="col-xs d-flex justify-content-center ">
 			          <a href="party_page?pageNum=${pageMaker.cri.pageNum}&amount=${pageMaker.cri.amount} &p_id=${getParty_list.p_id}"  class="btn btn-lg btn-light" style="width: 100%">
 				          <h2><img src="../resources/img/${getParty_list.p_platform}Icon.png" width="50px" height="50px"> ${getParty_list.p_platform}</h2>
 				          <p>${getParty_list.p_title}</p>
@@ -165,7 +167,8 @@
 	</form>
 	
             <!-- About Section-->
-            <section class="bg-light py-2 fixed-bottom">
+<!--             <section class="bg-light py-2 fixed-bottom"> -->
+            <section class="bg-light py-2">
                 <div class="container px-2" >
                     <div class="row gx-2 justify-content-center ">
                         <div class="col-sm-8 h-5">
@@ -182,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+            </section>
             
         <!-- Footer-->
         <footer class="bg-warning py-4 mt-0 ">
@@ -198,7 +202,6 @@
                 </div>
             </div>
         </footer>
-            </section>
             </main>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

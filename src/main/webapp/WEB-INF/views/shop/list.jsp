@@ -22,7 +22,6 @@
 		
 	
     </head>
-<!--     <body class="d-flex flex-column h-100"> -->
     <body >
         <main class="flex-shrink-0">
         
@@ -41,28 +40,39 @@
                             <li class="nav-item"><a class="nav-link " href="index.html" >마이페이지</a></li>
                             <li class="nav-item"><a class="nav-link" href="admin.html">관리자페이지</a></li>
                         </ul>
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 Large  fw-bolder ">
-<!--                             <li class="nav-item"><a class="nav-link " href="index.html" >티모님 환영합니다</a></li> -->
+                     
+								
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0 Large  fw-bolder">
                             <li class="nav-item">
-	                            <div class="dropdown">
-							      <a href="#" class=" nav-link dropdown-toggle p-0" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-							        <img src="../resources/img/Teemo.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
-							       티모님환영합니다
+	                            <ul class="navbar-nav ms-0 ml-0 mb-lg-0 Large  fw-bolder">
+	                            <li class="nav-item">
+							      <a class="nav-link">
+							       ${sessionScope.u_nickname}님 환영합니다
 							      </a>
-							       
-							      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
-							        <li><a class="dropdown-item" href="#">프로필</a></li>
-							        <li><a class="dropdown-item" href="#">내파티</a></li>
-							        <li><a class="dropdown-item" href="#">결재내역</a></li>
-							        <li><a class="dropdown-item" href="#"></a></li>
-							        <li><hr class="dropdown-divider"></li>
-							        <li><a class="dropdown-item" href="#">로그아웃</a></li>
-							      </ul>
-							    </div>
+							     </li> 
+							     <li class="nav-item">
+		                              <a href="admin.html">
+	                              		 <c:choose>
+											<c:when test="${sessionScope.u_id eq null }">
+												<a class="nav-link " href="../users/userSignIn">로그인</a>
+											</c:when>
+											<c:otherwise>
+												<c:choose>
+													<c:when test="${sessionScope.access_Token eq null }">
+														<a class="nav-link " href="../users/logout">로그아웃</a>
+													</c:when>
+													<c:otherwise>
+														<a class="nav-link " href="../users/kakaologout">로그아웃</a>
+													</c:otherwise>
+												</c:choose>
+											</c:otherwise>
+										</c:choose>
+		                              </a>
+	                              </li>
 						    </li>
-                        </ul>
-                    </div>
-                </div>
+                       	 </ul> 									
+				    </div>
+                  </div>
             </nav>
      
             <!-- Navigation-->
@@ -105,8 +115,8 @@
 			  <!--             파티방 -->
       		<div class="container d-flex justify-content-center" id="hanging-icons">
 <!-- 				<h2 class="pb-2 text-center"> <img alt="" src="../resources/img/베너1.png" width="1200px"> </h2> -->
-                    	<img src="../resources/img/베너1.png" class="slideshow-image">
-                        <img src="../resources/img/베너2.png" class="slideshow-image">
+<!--                     	<img src="../resources/img/베너1.png" class="slideshow-image"> -->
+                        <img src="../resources/img/베너2.png" class="slideshow-image" style="width: 1400px">
            	</div>
 		    <div class="row row-cols-4 ms-5 me-5 d-flex justify-content-center">
 		    
